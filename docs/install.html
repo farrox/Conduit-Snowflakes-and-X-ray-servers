@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Installation - Conduit CLI</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <h1>Conduit CLI</h1>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="getting-started.html">Getting Started</a></li>
+                    <li><a href="install.html" class="active">Installation</a></li>
+                    <li><a href="setup.html">Setup</a></li>
+                    <li><a href="usage.html">Usage</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="content">
+            <h2>Installation Guide</h2>
+            <p>Choose the installation method that works best for you.</p>
+
+            <h3>Option 1: Download DMG (Easiest - Recommended for macOS)</h3>
+            <p>If a DMG file is available for download, this is the simplest method:</p>
+            
+            <ol>
+                <li><strong>Download the DMG</strong> from the website or GitHub releases</li>
+                <li><strong>Double-click the DMG</strong> to mount it</li>
+                <li><strong>Drag "Conduit" to your Applications folder</strong></li>
+                <li><strong>Double-click "Start Conduit.command"</strong> in the DMG (or run from Terminal)</li>
+            </ol>
+
+            <p>That's it! The binary includes everything needed.</p>
+
+            <h4>Running from Applications</h4>
+            <p>After installing, you can run Conduit from Terminal:</p>
+            <div class="code-block">
+                <pre><code># Basic usage
+/Applications/Conduit start
+
+# With verbose output
+/Applications/Conduit start -v</code></pre>
+            </div>
+
+            <h3>Option 2: Clone Repository (For Developers)</h3>
+            <p>If you've cloned the repository, use the automated setup:</p>
+
+            <h4>Quick Setup (Automated)</h4>
+            <ol>
+                <li><strong>Open Terminal</strong> and navigate to the project:
+                    <div class="code-block">
+                        <pre><code>cd /path/to/conduit_emergency</code></pre>
+                    </div>
+                </li>
+                <li><strong>Run the easy setup script</strong>:
+                    <div class="code-block">
+                        <pre><code>chmod +x scripts/easy-setup.sh
+./scripts/easy-setup.sh</code></pre>
+                    </div>
+                </li>
+            </ol>
+
+            <p>This script will automatically:
+            <ul>
+                <li>Install Homebrew (if needed)</li>
+                <li>Install Go 1.24 (if needed)</li>
+                <li>Set up all dependencies</li>
+                <li>Build the binary</li>
+                <li>Create a launcher script</li>
+            </ul>
+            </p>
+
+            <p>Then simply <strong>double-click "Start Conduit.command"</strong> in the project folder.</p>
+
+            <h4>Manual Setup</h4>
+            <p>If you prefer to do it manually:</p>
+            <div class="code-block">
+                <pre><code># Install Homebrew (if not installed)
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Install Go 1.24
+brew install go@1.24
+export PATH="/usr/local/opt/go@1.24/bin:$PATH"
+echo 'export PATH="/usr/local/opt/go@1.24/bin:$PATH"' >> ~/.zprofile
+
+# Set up and build
+cd /path/to/conduit_emergency
+make setup
+make build
+
+# Run
+./dist/conduit start --psiphon-config ./psiphon_config.json</code></pre>
+            </div>
+
+            <h3>Getting Your Psiphon Config</h3>
+            <p><strong>Important:</strong> You need a valid Psiphon configuration file to run Conduit.</p>
+            <ol>
+                <li>Contact <strong>info@psiphon.ca</strong> to request a configuration file</li>
+                <li>Save it as <code>psiphon_config.json</code> in your project folder (or Applications folder if using DMG)</li>
+            </ol>
+            <p>The example config (<code>psiphon_config.example.json</code>) will NOT work - it's just a template.</p>
+
+            <h3>Troubleshooting</h3>
+            
+            <h4>"Permission denied"</h4>
+            <div class="code-block">
+                <pre><code>chmod +x /Applications/Conduit</code></pre>
+            </div>
+
+            <h4>"Command not found: make"</h4>
+            <p>Install Xcode Command Line Tools:</p>
+            <div class="code-block">
+                <pre><code>xcode-select --install</code></pre>
+            </div>
+
+            <h4>"Go not found" or "Wrong Go version"</h4>
+            <div class="code-block">
+                <pre><code>brew install go@1.24
+export PATH="/usr/local/opt/go@1.24/bin:$PATH"</code></pre>
+            </div>
+
+            <h4>"Binary not found"</h4>
+            <p>Make sure you've built it:</p>
+            <div class="code-block">
+                <pre><code>cd /path/to/conduit_emergency
+make build</code></pre>
+            </div>
+
+            <h4>DMG won't open</h4>
+            <p>Right-click the DMG → Open → Open (to bypass Gatekeeper)</p>
+
+            <h3>Next Steps</h3>
+            <ul>
+                <li>See <a href="usage.html">Usage Guide</a> for command options</li>
+                <li>See <a href="setup.html">Setup Guide</a> for advanced configuration</li>
+                <li>Run with <code>-v</code> flag to see verbose output</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Conduit CLI. GNU General Public License v3.0</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -2,6 +2,26 @@
 
 Command-line interface for running a Psiphon Conduit node - a volunteer-run proxy that relays traffic for users in censored regions.
 
+## 🚀 Easy Installation for macOS (Intel)
+
+**For end users who want the simplest experience:**
+
+### Option 1: Download DMG (Easiest)
+1. Download the DMG from the website/releases
+2. Double-click to mount
+3. Drag "Conduit" to Applications
+4. Double-click "Start Conduit.command"
+
+### Option 2: Clone & Auto-Setup
+```bash
+git clone [repo-url]
+cd conduit_emergency
+./scripts/easy-setup.sh
+# Then double-click "Start Conduit.command"
+```
+
+See [INSTALL_MAC.md](INSTALL_MAC.md) for detailed instructions.
+
 ## Quick Start
 
 ```bash

@@ -92,10 +92,16 @@ build: check-go check-setup
 	$(call GO_BUILD,dist/conduit,,$(shell go env GOOS),$(shell go env GOARCH))
 
 # Build with embedded psiphon config (single binary distribution)
+# Respects GOOS and GOARCH environment variables for cross-compilation
 build-embedded: check-go check-setup check-psiphon-config
 	@echo "Building with embedded config: $(PSIPHON_CONFIG)"
 	@cp "$(PSIPHON_CONFIG)" internal/config/psiphon_config.json
-	$(call GO_BUILD,dist/conduit,$(EMBED_TAG),$(shell go env GOOS),$(shell go env GOARCH))
+	@if [ -n "$$GOOS" ] && [ -n "$$GOARCH" ]; then \
+		echo "Cross-compiling for $$GOOS/$$GOARCH"; \
+		$(call GO_BUILD,dist/conduit,$(EMBED_TAG),$$GOOS,$$GOARCH); \
+	else \
+		$(call GO_BUILD,dist/conduit,$(EMBED_TAG),$(shell go env GOOS),$(shell go env GOARCH)); \
+	fi
 	@rm -f internal/config/psiphon_config.json
 	@echo "Built dist/conduit with embedded config"
 
@@ -170,6 +176,19 @@ clean-all: clean
 install: check-go check-setup
 	$(GO) install -tags "$(BASE_TAGS)" -ldflags "$(LDFLAGS_VERSION)" .
 
+# Create DMG for macOS distribution
+dmg: check-go check-setup check-psiphon-config
+	@if [ "$(shell uname)" != "Darwin" ]; then \
+		echo "Error: DMG creation is only supported on macOS"; \
+		exit 1; \
+	fi
+	@if [ ! -f "scripts/create-dmg.sh" ]; then \
+		echo "Error: scripts/create-dmg.sh not found"; \
+		exit 1; \
+	fi
+	@chmod +x scripts/create-dmg.sh
+	@./scripts/create-dmg.sh $(PSIPHON_CONFIG)
+
 # Show help
 help:
 	@echo "Conduit CLI - Makefile targets:"
@@ -179,6 +198,7 @@ help:
 	@echo "  build-embedded     Build with embedded psiphon config (single binary)"
 	@echo "  build-all          Build for all platforms"
 	@echo "  build-all-embedded Build all platforms with embedded config"
+	@echo "  dmg                Create macOS DMG installer (requires psiphon config)"
 	@echo "  run                Run with verbose logging"
 	@echo "  deps               Download dependencies"
 	@echo "  clean              Remove build artifacts"
@@ -187,6 +207,7 @@ help:
 	@echo "Embedded builds:"
 	@echo "  make build-embedded PSIPHON_CONFIG=path/to/config.json"
 	@echo "  make build-all-embedded PSIPHON_CONFIG=path/to/config.json"
+	@echo "  make dmg PSIPHON_CONFIG=path/to/config.json"
 	@echo ""
 	@echo "Requirements:"
 	@echo "  Go 1.24.x (Go 1.25+ is NOT supported due to psiphon-tls)"
@@ -194,6 +215,9 @@ help:
 	@echo ""
 	@echo "First time setup:"
 	@echo "  make setup && make build"
+	@echo ""
+	@echo "Easy setup (macOS):"
+	@echo "  ./scripts/easy-setup.sh"
 	@echo ""
 	@echo "Usage:"
 	@echo "  ./dist/conduit start --psiphon-config /path/to/psiphon_config.json"
