@@ -1,81 +1,130 @@
 # Conduit CLI
 
-Command-line interface for running a Psiphon Conduit node - a volunteer-run proxy that relays traffic for users in censored regions.
+<div align="center">
 
-## 🚀 Quick Start for Mac Users
+**Help Iranians access the open internet by running a volunteer proxy node**
 
-**New to this? Start here:** [docs/markdown/QUICKSTART_MAC.md](docs/markdown/QUICKSTART_MAC.md) - Simple step-by-step guide for non-technical users.
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-### Quick Options:
+</div>
 
-**Option 1: Docker Manager (Easiest - No Build Required)**
-If you have Docker Desktop installed, use the Docker-based manager:
+---
+
+## 📊 Live Dashboard
+
+Monitor your Conduit node in real-time with the built-in dashboard:
+
+![Live Dashboard](resources/dashboard.png)
+
+*The dashboard shows connected Iranians, CPU/RAM usage, and traffic statistics in real-time.*
+
+**Quick Start with Dashboard:**
+```bash
+./scripts/start-with-dashboard.sh
+```
+
+See the [Dashboard Guide](docs/markdown/DASHBOARD.md) for full documentation.
+
+---
+
+## 🚀 Quick Start
+
+Get Conduit running in minutes! Choose the method that works best for you:
+
+### Option 1: Docker Manager (Easiest - Recommended for Mac)
+
+**Perfect for:** Mac users who want the simplest setup with a beautiful UI
+
 ```bash
 ./scripts/conduit-manager-mac.sh
 ```
-This provides a beautiful UI with live dashboard. See [docs/markdown/CONDUIT_MANAGER_MAC.md](docs/markdown/CONDUIT_MANAGER_MAC.md) for details.
 
-**Option 2: Download DMG (Native Binary)**
-1. Download the DMG from the website/releases
-2. Double-click to mount
+✅ No building required  
+✅ Beautiful live dashboard  
+✅ Automatic updates  
+✅ Smart start/stop/restart
+
+See [Docker Manager Guide](docs/markdown/CONDUIT_MANAGER_MAC.md) for details.
+
+### Option 2: Download DMG (Native Binary for Mac)
+
+**Perfect for:** Mac users who want a native app without Docker
+
+1. Download the `Conduit.dmg` file
+2. Double-click to mount it
 3. Drag "Conduit" to Applications
 4. Double-click "Start Conduit.command"
 
-**Option 3: Clone & Auto-Setup (Build from Source)**
+See [Installation Guide](docs/markdown/INSTALL_MAC.md) for detailed instructions.
+
+### Option 3: Build from Source
+
+**Perfect for:** Developers or users who want full control
+
 ```bash
-git clone [repo-url]
+# Clone repository
+git clone https://github.com/farrox/conduit_emergency.git
 cd conduit_emergency
+
+# Run automated setup (installs everything)
 ./scripts/easy-setup.sh
+
 # Then double-click "Start Conduit.command"
 ```
 
-See [docs/markdown/INSTALL_MAC.md](docs/markdown/INSTALL_MAC.md) for detailed instructions.
+✅ Automated setup (installs everything)  
+✅ Creates launcher script  
+✅ Full customization
 
-## Quick Start
+See [Quick Start Guide](docs/markdown/QUICKSTART_MAC.md) for step-by-step instructions.
 
+---
+
+## 📋 What You Need
+
+### 1. Get Your Config File
+
+Conduit needs a `psiphon_config.json` file to connect to the Psiphon network.
+
+**Easiest Method - Extract from iOS App:**
 ```bash
-# First time setup (clones required dependencies)
-make setup
-
-# Build
-make build
-
-# Run
-./dist/conduit start --psiphon-config /path/to/psiphon_config.json
+./scripts/extract-ios-config.sh
 ```
 
-## Requirements
+**Alternative - Email Psiphon:**
+- Email: `info@psiphon.ca`
+- Subject: "Request for Conduit CLI Configuration"
 
-- **Go 1.24.x** (Go 1.25+ is not supported due to psiphon-tls compatibility)
-- Psiphon network configuration file (JSON)
+See [Get Config Guide](docs/markdown/GET_CONFIG.md) for all options.
 
-**Installing Go:** See [docs/markdown/INSTALL-GO.md](docs/markdown/INSTALL-GO.md) for installation instructions.
+### 2. Start Conduit
 
-## Configuration
-
-Conduit requires a Psiphon network configuration file containing connection parameters. See `psiphon_config.example.json` for the expected format.
-
-**No email required!** If you have the iOS Conduit app, extract the config:
+**With Dashboard (Recommended):**
 ```bash
-./scripts/extract-ios-config.sh  # Extracts from iOS app bundle
+./scripts/start-with-dashboard.sh
 ```
 
-Or build with embedded config (like the iOS app):
+**Manual Start:**
 ```bash
-make build-embedded PSIPHON_CONFIG=./psiphon_config.json
+./dist/conduit start \
+  --psiphon-config ./psiphon_config.json \
+  -v \
+  --stats-file
 ```
 
-See [docs/markdown/GET_CONFIG.md](docs/markdown/GET_CONFIG.md) for all options. If you don't have the iOS app, contact Psiphon (info@psiphon.ca) to obtain valid configuration values.
+**View Dashboard:**
+```bash
+# In another terminal
+./scripts/dashboard.sh
+```
 
-## Security & Firewall
+---
 
-By default, Conduit accepts connections from anywhere. If you want to restrict traffic to specific regions (e.g., only Iran), see [docs/markdown/SECURITY_FIREWALL.md](docs/markdown/SECURITY_FIREWALL.md) for firewall configuration guides.
-
-**Windows users:** Check out the [Iran Conduit Firewall](https://github.com/SamNet-dev/iran-conduit-firewall) project for an automated solution with explicit blocking rules and full IPv6 support.
+## ⚙️ Configuration
 
 ### Optimal Settings for Maximum Iranians
 
-For the easiest way to configure optimal max-clients and bandwidth:
+Automatically calculate the best settings for your internet speed:
 
 ```bash
 # Interactive configuration helper
@@ -85,40 +134,14 @@ For the easiest way to configure optimal max-clients and bandwidth:
 ./scripts/quick-optimal.sh
 ```
 
-See [docs/markdown/CONFIG_OPTIMAL.md](docs/markdown/CONFIG_OPTIMAL.md) for detailed guidance.
+This will:
+- ✅ Test your internet bandwidth
+- ✅ Calculate optimal `max-clients` and `bandwidth`
+- ✅ Create a launcher with optimal settings
 
-### Live Dashboard
+See [Optimal Configuration Guide](docs/markdown/CONFIG_OPTIMAL.md) for detailed guidance.
 
-Monitor your Conduit node in real-time with the live dashboard:
-
-```bash
-# Start Conduit with dashboard
-./scripts/start-with-dashboard.sh
-
-# Or start manually, then run dashboard in another terminal
-./dist/conduit start --psiphon-config ./psiphon_config.json -v --stats-file
-./scripts/dashboard.sh
-```
-
-See [docs/markdown/DASHBOARD.md](docs/markdown/DASHBOARD.md) for full dashboard documentation.
-
-## Usage
-
-```bash
-# Start with default settings
-conduit start --psiphon-config ./psiphon_config.json
-
-# Customize limits
-conduit start --psiphon-config ./psiphon_config.json --max-clients 500 --bandwidth 10
-
-# Verbose output (info messages)
-conduit start --psiphon-config ./psiphon_config.json -v
-
-# Debug output (everything)
-conduit start --psiphon-config ./psiphon_config.json -vv
-```
-
-### Options
+### Command Options
 
 | Flag | Default | Description |
 |------|---------|-------------|
@@ -126,79 +149,69 @@ conduit start --psiphon-config ./psiphon_config.json -vv
 | `--max-clients, -m` | 200 | Maximum concurrent clients (1-1000) |
 | `--bandwidth, -b` | 5 | Bandwidth limit per peer in Mbps (1-40) |
 | `--data-dir, -d` | `./data` | Directory for keys and state |
+| `--stats-file` | - | Enable stats file for dashboard |
 | `-v` | - | Verbose output (use `-vv` for debug) |
 
-## Building
+### Example Commands
 
 ```bash
-# Build for current platform
-make build
+# Start with default settings
+./dist/conduit start --psiphon-config ./psiphon_config.json
 
-# Build with embedded config (single-binary distribution)
-make build-embedded PSIPHON_CONFIG=./psiphon_config.json
+# High-capacity node
+./dist/conduit start \
+  --psiphon-config ./psiphon_config.json \
+  --max-clients 1000 \
+  --bandwidth 40
 
-# Build for all platforms
-make build-all
-
-# Individual platform builds
-make build-linux       # Linux amd64
-make build-linux-arm   # Linux arm64
-make build-darwin      # macOS Intel
-make build-darwin-arm  # macOS Apple Silicon
-make build-windows     # Windows amd64
+# With dashboard enabled
+./dist/conduit start \
+  --psiphon-config ./psiphon_config.json \
+  --max-clients 500 \
+  --bandwidth 10 \
+  -v \
+  --stats-file
 ```
 
-Binaries are output to `dist/`.
+---
 
-## Docker
+## 🐳 Docker
 
-### Build with embedded config (recommended)
+### Quick Start (Recommended)
 
 ```bash
+# Build with embedded config
 docker build -t conduit \
   --build-arg PSIPHON_CONFIG=psiphon_config.json \
   -f Dockerfile.embedded .
-```
 
-### Run with persistent data
-
-**Important:** The Psiphon broker tracks proxy reputation by key. Always use a persistent volume to preserve your key across container restarts, otherwise you'll start with zero reputation and may not receive client connections.
-
-```bash
-# Using a named volume (recommended)
+# Run with persistent volume
 docker run -d --name conduit \
   -v conduit-data:/home/conduit/data \
   --restart unless-stopped \
   conduit
-
-# Or using a host directory
-mkdir -p /path/to/data && chown 1000:1000 /path/to/data
-docker run -d --name conduit \
-  -v /path/to/data:/home/conduit/data \
-  --restart unless-stopped \
-  conduit
 ```
 
-### Build without embedded config
+**Important:** Always use a persistent volume to preserve your node's identity key and reputation.
 
-If you prefer to mount the config at runtime:
+### Docker Manager (Mac)
+
+Use the interactive Docker Manager for the easiest experience:
 
 ```bash
-docker build -t conduit .
-
-docker run -d --name conduit \
-  -v conduit-data:/home/conduit/data \
-  -v /path/to/psiphon_config.json:/config.json:ro \
-  --restart unless-stopped \
-  conduit start --psiphon-config /config.json
+./scripts/conduit-manager-mac.sh
 ```
 
-## Cloud Deployment
+See [Docker Manager Guide](docs/markdown/CONDUIT_MANAGER_MAC.md) for details.
+
+---
+
+## ☁️ Cloud Deployment
 
 Deploy Conduit to cloud providers like DigitalOcean, Linode, Hetzner, AWS, Google Cloud, or Azure:
 
 - **[Cloud Deployment Guide](docs/markdown/DEPLOY_CLOUD.md)** - Complete guide for all major cloud providers
-- **[Deployment TODO Checklist](DEPLOY_TODO.md)** - Quick reference checklist for deployment tasks
+- **[Deployment TODO Checklist](DEPLOY_TODO.md)** - Quick reference checklist
 
 **Quick start (Docker on Ubuntu):**
 ```bash
@@ -219,14 +232,86 @@ docker run -d --name conduit \
 
 See the [full deployment guide](docs/markdown/DEPLOY_CLOUD.md) for systemd services, firewall configuration, monitoring, and provider-specific notes.
 
-## Data Directory
+---
+
+## 🔨 Building from Source
+
+### Requirements
+
+- **Go 1.24.x** (Go 1.25+ is not supported due to psiphon-tls compatibility)
+- Psiphon network configuration file (JSON)
+
+**Installing Go:** See [Go Installation Guide](docs/markdown/INSTALL-GO.md).
+
+### Build Commands
+
+```bash
+# First time setup (clones required dependencies)
+make setup
+
+# Build for current platform
+make build
+
+# Build with embedded config (single-binary distribution)
+make build-embedded PSIPHON_CONFIG=./psiphon_config.json
+
+# Build for all platforms
+make build-all
+
+# Individual platform builds
+make build-linux       # Linux amd64
+make build-linux-arm   # Linux arm64
+make build-darwin      # macOS Intel
+make build-darwin-arm  # macOS Apple Silicon
+make build-windows     # Windows amd64
+```
+
+Binaries are output to `dist/`.
+
+---
+
+## 🔒 Security & Firewall
+
+By default, Conduit accepts connections from anywhere. If you want to restrict traffic to specific regions (e.g., only Iran), see [Security & Firewall Guide](docs/markdown/SECURITY_FIREWALL.md).
+
+**Windows users:** Check out the [Iran Conduit Firewall](https://github.com/SamNet-dev/iran-conduit-firewall) project for an automated solution with explicit blocking rules and full IPv6 support.
+
+---
+
+## 📁 Data Directory
 
 Keys and state are stored in the data directory (default: `./data`):
-- `conduit_key.json` - Node identity keypair (preserve this!)
+- `conduit_key.json` - Node identity keypair (**preserve this!**)
+- `stats.json` - Statistics file (if `--stats-file` is enabled)
 
-The broker builds reputation for your proxy based on this key. If you lose it, you'll need to build reputation from scratch.
+**Important:** The Psiphon broker tracks proxy reputation by key. If you lose `conduit_key.json`, you'll need to build reputation from scratch.
 
-## Community & Acknowledgements
+**Backup your data directory regularly!**
+
+---
+
+## 📚 Documentation
+
+### Getting Started
+- **[Quick Start for Mac](docs/markdown/QUICKSTART_MAC.md)** - Simple step-by-step guide for non-technical users
+- **[Installation Guide](docs/markdown/INSTALL_MAC.md)** - Detailed installation options
+- **[Get Config Guide](docs/markdown/GET_CONFIG.md)** - How to get your `psiphon_config.json`
+
+### Configuration
+- **[Optimal Configuration](docs/markdown/CONFIG_OPTIMAL.md)** - Calculate best settings for maximum Iranians
+- **[Dashboard Guide](docs/markdown/DASHBOARD.md)** - Live monitoring dashboard
+- **[Security & Firewall](docs/markdown/SECURITY_FIREWALL.md)** - Restrict traffic to specific regions
+
+### Deployment
+- **[Cloud Deployment](docs/markdown/DEPLOY_CLOUD.md)** - Deploy to DigitalOcean, Linode, Hetzner, AWS, etc.
+- **[Deployment TODO](DEPLOY_TODO.md)** - Quick reference checklist
+
+### HTML Documentation
+- **[HTML Docs](docs/index.html)** - Beautiful web-based documentation
+
+---
+
+## 🤝 Community & Acknowledgements
 
 This project incorporates and references several excellent community contributions:
 
@@ -235,6 +320,27 @@ This project incorporates and references several excellent community contributio
 
 See [ACKNOWLEDGEMENTS.md](ACKNOWLEDGEMENTS.md) for full credits and links.
 
-## License
+---
+
+## 📝 License
 
 GNU General Public License v3.0
+
+---
+
+## 🆘 Need Help?
+
+1. Check the [Quick Start Guide](docs/markdown/QUICKSTART_MAC.md) for step-by-step instructions
+2. See the [HTML Documentation](docs/index.html) for visual guides
+3. Review the [troubleshooting section](docs/markdown/QUICKSTART_MAC.md#troubleshooting) in the Quick Start guide
+4. Open an issue on GitHub if you need further assistance
+
+---
+
+<div align="center">
+
+**Thank you for helping Iranians access the open internet!** 🌐
+
+Made with ❤️ for internet freedom
+
+</div>
