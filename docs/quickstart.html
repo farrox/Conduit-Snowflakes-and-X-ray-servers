@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Start - Conduit CLI</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <h1>Conduit CLI</h1>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="quickstart.html" class="active">Quick Start</a></li>
+                    <li><a href="getting-started.html">Getting Started</a></li>
+                    <li><a href="install.html">Installation</a></li>
+                    <li><a href="setup.html">Setup</a></li>
+                    <li><a href="usage.html">Usage</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="content">
+            <h2>Quick Start for Mac Users</h2>
+            <p><strong>Get Conduit running in 5 minutes - no technical knowledge needed!</strong></p>
+
+            <h3>Step 1: Download or Clone</h3>
+            
+            <h4>Option A: Download DMG (Easiest)</h4>
+            <ol>
+                <li>Download the <code>Conduit.dmg</code> file</li>
+                <li>Double-click the DMG to open it</li>
+                <li>Drag "Conduit" to your Applications folder</li>
+                <li><strong>Note:</strong> If the DMG has a config file included, you can skip Step 2. Otherwise, continue to Step 2 to get your config file.</li>
+            </ol>
+
+            <h4>Option B: Clone from GitHub</h4>
+            <ol>
+                <li>Open Terminal (press <code>Cmd + Space</code>, type "Terminal", press Enter)</li>
+                <li>Copy and paste this command:
+                    <div class="code-block">
+                        <pre><code>git clone https://github.com/farrox/conduit_emergency.git
+cd conduit_emergency</code></pre>
+                    </div>
+                </li>
+                <li>Press Enter</li>
+            </ol>
+
+            <h3>Step 2: Get Your Config File (No Email Needed!)</h3>
+            <p>The config file connects you to the Psiphon network. Here's the easiest way:</p>
+
+            <h4>If You Have the iOS Conduit App:</h4>
+            <ol>
+                <li>In Terminal, type this and press Enter:
+                    <div class="code-block">
+                        <pre><code>./extract-ios-config.sh</code></pre>
+                    </div>
+                </li>
+                <li>If it says "✅ Copied!", you're done! Skip to Step 3.</li>
+            </ol>
+
+            <h4>If You Don't Have the iOS App:</h4>
+            <ol>
+                <li>You'll need to get the config file from Psiphon</li>
+                <li>Email: <strong>info@psiphon.ca</strong></li>
+                <li>Subject: "Request for Conduit CLI Configuration"</li>
+                <li>Save the file they send you as <code>psiphon_config.json</code> in the project folder</li>
+            </ol>
+
+            <h3>Step 3: Run the Setup Script (Only if You Cloned)</h3>
+            <p><strong>Skip this step if you downloaded the DMG</strong> - the DMG already has everything built!</p>
+            <p>If you cloned from GitHub, in Terminal, type this and press Enter:</p>
+            <div class="code-block">
+                <pre><code>./scripts/easy-setup.sh</code></pre>
+            </div>
+            <p><strong>What this does:</strong></p>
+            <ul>
+                <li>Installs everything you need (if not already installed)</li>
+                <li>Builds the Conduit program</li>
+                <li>Creates a launcher you can double-click</li>
+            </ul>
+            <p><strong>Just wait for it to finish</strong> - it will tell you when it's done.</p>
+
+            <h3>Step 4: Start Conduit</h3>
+            <p>Choose the option that matches how you installed:</p>
+
+            <h4>Option A: Double-Click (Easiest - For Cloned Repo)</h4>
+            <ol>
+                <li>Look in the project folder for <code>Start Conduit.command</code></li>
+                <li>Double-click it</li>
+                <li>A Terminal window will open and Conduit will start running</li>
+            </ol>
+
+            <h4>Option B: From Applications (If You Used DMG)</h4>
+            <ol>
+                <li>Open Terminal</li>
+                <li>Type:
+                    <div class="code-block">
+                        <pre><code>/Applications/Conduit start</code></pre>
+                    </div>
+                </li>
+                <li>Press Enter</li>
+            </ol>
+
+            <h4>Option C: Terminal Command (For Cloned Repo)</h4>
+            <ol>
+                <li>In Terminal, make sure you're in the project folder</li>
+                <li>Type:
+                    <div class="code-block">
+                        <pre><code>./dist/conduit start --psiphon-config ./psiphon_config.json</code></pre>
+                    </div>
+                </li>
+                <li>Press Enter</li>
+            </ol>
+
+            <h3>Step 5: Configure Optimal Settings (Optional but Recommended)</h3>
+            <p>To get the most users with your internet speed:</p>
+            <ol>
+                <li>In Terminal, type:
+                    <div class="code-block">
+                        <pre><code>./scripts/configure-optimal.sh</code></pre>
+                    </div>
+                </li>
+                <li>Follow the prompts - it will:
+                    <ul>
+                        <li>Test your internet speed</li>
+                        <li>Calculate the best settings</li>
+                        <li>Create a launcher with optimal settings</li>
+                    </ul>
+                </li>
+                <li>Then use the new launcher: <code>Start Conduit (Optimal).command</code></li>
+            </ol>
+
+            <h3>That's It!</h3>
+            <p>Conduit is now running and helping users in censored regions access the internet.</p>
+
+            <h4>To Stop Conduit:</h4>
+            <ul>
+                <li>Press <code>Ctrl + C</code> in the Terminal window, or</li>
+                <li>Close the Terminal window</li>
+            </ul>
+
+            <h4>To Start Again Later:</h4>
+            <ul>
+                <li>Just double-click <code>Start Conduit.command</code> (or <code>Start Conduit (Optimal).command</code> if you configured it)</li>
+            </ul>
+
+            <h3>Troubleshooting</h3>
+
+            <h4>"Permission denied"</h4>
+            <p>In Terminal, type:</p>
+            <div class="code-block">
+                <pre><code>chmod +x scripts/*.sh
+chmod +x extract-ios-config.sh</code></pre>
+            </div>
+
+            <h4>"Command not found: make"</h4>
+            <p>Install Xcode Command Line Tools:</p>
+            <ol>
+                <li>In Terminal, type: <code>xcode-select --install</code></li>
+                <li>Click "Install" when prompted</li>
+                <li>Wait for it to finish, then try again</li>
+            </ol>
+
+            <h4>"Config file not found"</h4>
+            <p>Make sure you completed Step 2. Run:</p>
+            <div class="code-block">
+                <pre><code>./scripts/check-config.sh</code></pre>
+            </div>
+            <p>This will help you find or get the config file.</p>
+
+            <h4>"Binary not found"</h4>
+            <p>Run the setup script again:</p>
+            <div class="code-block">
+                <pre><code>./scripts/easy-setup.sh</code></pre>
+            </div>
+
+            <h3>Need More Help?</h3>
+            <ul>
+                <li>See <a href="../GET_CONFIG.md">GET_CONFIG.md</a> for detailed config instructions</li>
+                <li>See <a href="../CONFIG_OPTIMAL.md">CONFIG_OPTIMAL.md</a> for optimal settings guide</li>
+                <li>See <a href="../README.md">README.md</a> for full documentation</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Conduit CLI. GNU General Public License v3.0</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -8,7 +8,7 @@
 1. Download the `Conduit.dmg` file
 2. Double-click the DMG to open it
 3. Drag "Conduit" to your Applications folder
-4. Skip to Step 3
+4. **Note:** If the DMG has a config file included, you can skip Step 2. Otherwise, continue to Step 2 to get your config file.
 
 ### Option B: Clone from GitHub
 1. Open Terminal (press `Cmd + Space`, type "Terminal", press Enter)
@@ -36,9 +36,11 @@ The config file connects you to the Psiphon network. Here's the easiest way:
 3. Subject: "Request for Conduit CLI Configuration"
 4. Save the file they send you as `psiphon_config.json` in the project folder
 
-## Step 3: Run the Setup Script
+## Step 3: Run the Setup Script (Only if You Cloned)
 
-In Terminal, type this and press Enter:
+**Skip this step if you downloaded the DMG** - the DMG already has everything built!
+
+If you cloned from GitHub, in Terminal, type this and press Enter:
 
 ```bash
 ./scripts/easy-setup.sh
@@ -55,17 +57,26 @@ In Terminal, type this and press Enter:
 
 You have two easy options:
 
-### Option A: Double-Click (Easiest)
+### Option A: Double-Click (Easiest - For Cloned Repo)
 1. Look in the project folder for `Start Conduit.command`
 2. Double-click it
 3. A Terminal window will open and Conduit will start running
 
-### Option B: Terminal Command
-1. In Terminal, type:
+### Option B: From Applications (If You Used DMG)
+1. Open Terminal
+2. Type:
+   ```bash
+   /Applications/Conduit start
+   ```
+3. Press Enter
+
+### Option C: Terminal Command (For Cloned Repo)
+1. In Terminal, make sure you're in the project folder
+2. Type:
    ```bash
    ./dist/conduit start --psiphon-config ./psiphon_config.json
    ```
-2. Press Enter
+3. Press Enter
 
 ## Step 5: Configure Optimal Settings (Optional but Recommended)
 
