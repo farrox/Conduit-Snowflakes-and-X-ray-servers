@@ -91,18 +91,37 @@ echo ""
 if [ ! -f "$PROJECT_ROOT/psiphon_config.json" ]; then
     echo "⚠️  Psiphon config not found!"
     echo ""
-    echo "You need a valid psiphon_config.json file to run Conduit."
-    echo "Contact Psiphon (info@psiphon.ca) to obtain one."
-    echo ""
-    echo "For now, I'll build without embedded config."
-    echo "You can build with embedded config later using:"
-    echo "  make build-embedded PSIPHON_CONFIG=/path/to/psiphon_config.json"
-    echo ""
-    BUILD_TARGET="build"
+    echo "Checking for existing config files..."
+    if [ -f "$PROJECT_ROOT/scripts/check-config.sh" ]; then
+        bash "$PROJECT_ROOT/scripts/check-config.sh"
+    fi
+    
+    if [ ! -f "$PROJECT_ROOT/psiphon_config.json" ]; then
+        echo ""
+        echo "You need a valid psiphon_config.json file to run Conduit."
+        echo "Contact Psiphon (info@psiphon.ca) to obtain one."
+        echo ""
+        echo "For now, I'll build without embedded config."
+        echo "You can build with embedded config later using:"
+        echo "  make build-embedded PSIPHON_CONFIG=/path/to/psiphon_config.json"
+        echo ""
+        BUILD_TARGET="build"
+    else
+        echo "✓ Found psiphon_config.json (after search)"
+        echo "Building with embedded config..."
+        BUILD_TARGET="build-embedded"
+    fi
 else
-    echo "✓ Found psiphon_config.json"
-    echo "Building with embedded config..."
-    BUILD_TARGET="build-embedded"
+    # Validate it's not the example
+    if grep -q "FFFFFFFFFFFFFFFF" "$PROJECT_ROOT/psiphon_config.json" 2>/dev/null; then
+        echo "⚠️  Found example config (will not work)"
+        echo "You need a real config from Psiphon. Building without embedded config for now."
+        BUILD_TARGET="build"
+    else
+        echo "✓ Found psiphon_config.json"
+        echo "Building with embedded config..."
+        BUILD_TARGET="build-embedded"
+    fi
 fi
 
 # Build
