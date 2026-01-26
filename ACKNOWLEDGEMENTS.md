@@ -37,6 +37,41 @@ This project is referenced in our [Security & Firewall documentation](docs/markd
 
 **Original Repository:** https://github.com/SamNet-dev/iran-conduit-firewall
 
+### Conduit Manager (Linux)
+
+**Project:** [conduit-manager](https://github.com/SamNet-dev/conduit-manager)  
+**Author:** [SamNet-dev](https://github.com/SamNet-dev)  
+**License:** MIT License
+
+A powerful, one-click management tool for Psiphon Conduit nodes on Linux. Features include:
+- Multi-distro support (Ubuntu, Debian, CentOS, Fedora, Arch, Alpine, openSUSE)
+- Auto-start on boot (systemd, OpenRC, SysVinit)
+- Live monitoring with CPU/RAM stats
+- Interactive management menu
+- Live peer connections by country (map view)
+
+This project inspired our Linux installation script and dashboard features. The live peer mapping feature is particularly useful for visualizing geographic distribution of connections.
+
+**Original Repository:** https://github.com/SamNet-dev/conduit-manager
+
+### Conduit Relay (Web Dashboard)
+
+**Project:** [conduit-relay](https://github.com/paradixe/conduit-relay)  
+**Author:** [paradixe](https://github.com/paradixe)  
+**Contributors:** [arpieb](https://github.com/arpieb), [alexraskin](https://github.com/alexraskin)
+
+A comprehensive web-based dashboard for managing multiple Conduit nodes. Features include:
+- Web-based dashboard (Node.js/Express)
+- Fleet management (multiple servers)
+- Real-time monitoring with charts
+- Geographic stats visualization
+- Auto-registration via join tokens
+- Update system
+
+This project's web dashboard architecture and features inspired our web dashboard integration plans. The join token system and fleet management capabilities are excellent examples of production-ready features.
+
+**Original Repository:** https://github.com/paradixe/conduit-relay
+
 ## Core Dependencies
 
 ### Psiphon Tunnel Core

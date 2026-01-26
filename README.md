@@ -337,6 +337,8 @@ Keys and state are stored in the data directory (default: `./data`):
 This project incorporates and references several excellent community contributions:
 
 - **[Conduit Manager for macOS](https://github.com/polamgh/conduit-manager-mac)** - Docker-based management tool with beautiful UI (by [polamgh](https://github.com/polamgh))
+- **[Conduit Manager (Linux)](https://github.com/SamNet-dev/conduit-manager)** - One-click Linux management tool with live peer mapping (by [SamNet-dev](https://github.com/SamNet-dev))
+- **[Conduit Relay](https://github.com/paradixe/conduit-relay)** - Web dashboard with fleet management (by [paradixe](https://github.com/paradixe))
 - **[Iran Conduit Firewall](https://github.com/SamNet-dev/iran-conduit-firewall)** - Windows firewall solution for traffic restriction (by [SamNet-dev](https://github.com/SamNet-dev))
 
 See [ACKNOWLEDGEMENTS.md](ACKNOWLEDGEMENTS.md) for full credits and links.
