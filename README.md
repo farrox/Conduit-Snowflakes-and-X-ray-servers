@@ -46,7 +46,17 @@ make build
 
 Conduit requires a Psiphon network configuration file containing connection parameters. See `psiphon_config.example.json` for the expected format.
 
-Contact Psiphon (info@psiphon.ca) to obtain valid configuration values.
+**No email required!** If you have the iOS Conduit app, extract the config:
+```bash
+./extract-ios-config.sh  # Extracts from iOS app bundle
+```
+
+Or build with embedded config (like the iOS app):
+```bash
+make build-embedded PSIPHON_CONFIG=./psiphon_config.json
+```
+
+See [GET_CONFIG.md](GET_CONFIG.md) for all options. If you don't have the iOS app, contact Psiphon (info@psiphon.ca) to obtain valid configuration values.
 
 ### Optimal Settings for Maximum Users
 
