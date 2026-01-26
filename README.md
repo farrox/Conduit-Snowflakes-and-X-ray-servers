@@ -48,6 +48,20 @@ Conduit requires a Psiphon network configuration file containing connection para
 
 Contact Psiphon (info@psiphon.ca) to obtain valid configuration values.
 
+### Optimal Settings for Maximum Users
+
+For the easiest way to configure optimal max-clients and bandwidth:
+
+```bash
+# Interactive configuration helper
+./scripts/configure-optimal.sh
+
+# Or quick start with auto-detection
+./scripts/quick-optimal.sh
+```
+
+See [CONFIG_OPTIMAL.md](CONFIG_OPTIMAL.md) for detailed guidance.
+
 ## Usage
 
 ```bash
