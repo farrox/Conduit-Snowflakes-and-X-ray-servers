@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup Guide - Conduit CLI</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <h1>Conduit CLI</h1>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="getting-started.html">Getting Started</a></li>
+                    <li><a href="setup.html" class="active">Setup</a></li>
+                    <li><a href="usage.html">Usage</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="content">
+            <h2>Setup Guide</h2>
+
+            <h3>Installing Go</h3>
+            <p>Conduit CLI requires <strong>Go 1.24.x</strong>. Go 1.25+ is not supported due to psiphon-tls compatibility.</p>
+            <p>See <code>INSTALL-GO.md</code> in the project root for detailed Go installation instructions.</p>
+
+            <h3>Building from Source</h3>
+            <div class="code-block">
+                <pre><code># Build for current platform
+make build
+
+# Build with embedded config (single-binary distribution)
+make build-embedded PSIPHON_CONFIG=./psiphon_config.json
+
+# Build for all platforms
+make build-all
+
+# Individual platform builds
+make build-linux       # Linux amd64
+make build-linux-arm   # Linux arm64
+make build-darwin      # macOS Intel
+make build-darwin-arm  # macOS Apple Silicon
+make build-windows     # Windows amd64</code></pre>
+            </div>
+            <p>Binaries are output to <code>dist/</code>.</p>
+
+            <h3>Docker Setup</h3>
+            
+            <h4>Build with Embedded Config (Recommended)</h4>
+            <div class="code-block">
+                <pre><code>docker build -t conduit \
+  --build-arg PSIPHON_CONFIG=psiphon_config.json \
+  -f Dockerfile.embedded .</code></pre>
+            </div>
+
+            <h4>Run with Persistent Data</h4>
+            <p><strong>Important:</strong> The Psiphon broker tracks proxy reputation by key. Always use a persistent volume to preserve your key across container restarts.</p>
+            
+            <div class="code-block">
+                <pre><code># Using a named volume (recommended)
+docker run -d --name conduit \
+  -v conduit-data:/home/conduit/data \
+  --restart unless-stopped \
+  conduit
+
+# Or using a host directory
+mkdir -p /path/to/data && chown 1000:1000 /path/to/data
+docker run -d --name conduit \
+  -v /path/to/data:/home/conduit/data \
+  --restart unless-stopped \
+  conduit</code></pre>
+            </div>
+
+            <h4>Build without Embedded Config</h4>
+            <p>If you prefer to mount the config at runtime:</p>
+            <div class="code-block">
+                <pre><code>docker build -t conduit .
+
+docker run -d --name conduit \
+  -v conduit-data:/home/conduit/data \
+  -v /path/to/psiphon_config.json:/config.json:ro \
+  --restart unless-stopped \
+  conduit start --psiphon-config /config.json</code></pre>
+            </div>
+
+            <h3>Data Directory</h3>
+            <p>Keys and state are stored in the data directory (default: <code>./data</code>):</p>
+            <ul>
+                <li><code>conduit_key.json</code> - Node identity keypair (preserve this!)</li>
+            </ul>
+            <p>The broker builds reputation for your proxy based on this key. If you lose it, you'll need to build reputation from scratch.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Conduit CLI. GNU General Public License v3.0</p>
+        </div>
+    </footer>
+</body>
+</html>

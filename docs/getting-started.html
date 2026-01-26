@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started - Conduit CLI</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <h1>Conduit CLI</h1>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="getting-started.html" class="active">Getting Started</a></li>
+                    <li><a href="setup.html">Setup</a></li>
+                    <li><a href="usage.html">Usage</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="content">
+            <h2>Getting Started</h2>
+            
+            <h3>Installation</h3>
+            <p>Before you begin, ensure you have Go 1.24.x installed. See the <a href="setup.html">Setup Guide</a> for detailed installation instructions.</p>
+
+            <h3>First Time Setup</h3>
+            <div class="code-block">
+                <pre><code># Clone the repository (if not already done)
+git clone [repository-url]
+cd conduit_emergency
+
+# Run initial setup (clones required dependencies)
+make setup</code></pre>
+            </div>
+
+            <h3>Build the Project</h3>
+            <div class="code-block">
+                <pre><code># Build for your current platform
+make build
+
+# The binary will be in dist/conduit</code></pre>
+            </div>
+
+            <h3>Configuration</h3>
+            <p>You'll need a Psiphon network configuration file. Contact Psiphon (info@psiphon.ca) to obtain valid configuration values.</p>
+            <p>See <code>psiphon_config.example.json</code> in the project root for the expected format.</p>
+
+            <h3>Run Your First Node</h3>
+            <div class="code-block">
+                <pre><code># Start with default settings
+./dist/conduit start --psiphon-config ./psiphon_config.json</code></pre>
+            </div>
+
+            <h3>Next Steps</h3>
+            <ul>
+                <li>Learn about <a href="usage.html">usage options and flags</a></li>
+                <li>Set up <a href="setup.html">Docker deployment</a></li>
+                <li>Configure bandwidth and client limits</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Conduit CLI. GNU General Public License v3.0</p>
+        </div>
+    </footer>
+</body>
+</html>

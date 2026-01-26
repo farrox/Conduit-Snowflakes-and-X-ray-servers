@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usage Guide - Conduit CLI</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <h1>Conduit CLI</h1>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="getting-started.html">Getting Started</a></li>
+                    <li><a href="setup.html">Setup</a></li>
+                    <li><a href="usage.html" class="active">Usage</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="content">
+            <h2>Usage Guide</h2>
+
+            <h3>Basic Usage</h3>
+            <div class="code-block">
+                <pre><code># Start with default settings
+conduit start --psiphon-config ./psiphon_config.json
+
+# Customize limits
+conduit start --psiphon-config ./psiphon_config.json --max-clients 500 --bandwidth 10
+
+# Verbose output (info messages)
+conduit start --psiphon-config ./psiphon_config.json -v
+
+# Debug output (everything)
+conduit start --psiphon-config ./psiphon_config.json -vv</code></pre>
+            </div>
+
+            <h3>Command Options</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Flag</th>
+                        <th>Default</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>--psiphon-config, -c</code></td>
+                        <td>-</td>
+                        <td>Path to Psiphon network configuration file</td>
+                    </tr>
+                    <tr>
+                        <td><code>--max-clients, -m</code></td>
+                        <td>200</td>
+                        <td>Maximum concurrent clients (1-1000)</td>
+                    </tr>
+                    <tr>
+                        <td><code>--bandwidth, -b</code></td>
+                        <td>5</td>
+                        <td>Bandwidth limit per peer in Mbps (1-40)</td>
+                    </tr>
+                    <tr>
+                        <td><code>--data-dir, -d</code></td>
+                        <td><code>./data</code></td>
+                        <td>Directory for keys and state</td>
+                    </tr>
+                    <tr>
+                        <td><code>-v</code></td>
+                        <td>-</td>
+                        <td>Verbose output (use <code>-vv</code> for debug)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Examples</h3>
+            
+            <h4>High-Capacity Node</h4>
+            <div class="code-block">
+                <pre><code>conduit start \
+  --psiphon-config ./psiphon_config.json \
+  --max-clients 1000 \
+  --bandwidth 40</code></pre>
+            </div>
+
+            <h4>Low-Resource Node</h4>
+            <div class="code-block">
+                <pre><code>conduit start \
+  --psiphon-config ./psiphon_config.json \
+  --max-clients 50 \
+  --bandwidth 2</code></pre>
+            </div>
+
+            <h4>Custom Data Directory</h4>
+            <div class="code-block">
+                <pre><code>conduit start \
+  --psiphon-config ./psiphon_config.json \
+  --data-dir /var/lib/conduit</code></pre>
+            </div>
+
+            <h3>Monitoring</h3>
+            <p>Use verbose flags to monitor your node's activity:</p>
+            <ul>
+                <li><code>-v</code> - Shows info-level messages</li>
+                <li><code>-vv</code> - Shows debug-level messages (very verbose)</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Conduit CLI. GNU General Public License v3.0</p>
+        </div>
+    </footer>
+</body>
+</html>

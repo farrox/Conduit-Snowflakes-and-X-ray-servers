@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conduit CLI - Documentation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <h1>Conduit CLI</h1>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="getting-started.html">Getting Started</a></li>
+                    <li><a href="setup.html">Setup</a></li>
+                    <li><a href="usage.html">Usage</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h2>Conduit CLI Documentation</h2>
+            <p>Command-line interface for running a Psiphon Conduit node - a volunteer-run proxy that relays traffic for users in censored regions.</p>
+        </section>
+
+        <section class="content">
+            <h3>Quick Start</h3>
+            <div class="code-block">
+                <pre><code># First time setup (clones required dependencies)
+make setup
+
+# Build
+make build
+
+# Run
+./dist/conduit start --psiphon-config /path/to/psiphon_config.json</code></pre>
+            </div>
+
+            <h3>Requirements</h3>
+            <ul>
+                <li><strong>Go 1.24.x</strong> (Go 1.25+ is not supported due to psiphon-tls compatibility)</li>
+                <li>Psiphon network configuration file (JSON)</li>
+            </ul>
+            <p>See <a href="setup.html">Setup Guide</a> for installation instructions.</p>
+
+            <h3>Features</h3>
+            <ul>
+                <li>Volunteer-run proxy for users in censored regions</li>
+                <li>Configurable client limits and bandwidth</li>
+                <li>Docker support with embedded configuration</li>
+                <li>Cross-platform builds</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Conduit CLI. GNU General Public License v3.0</p>
+        </div>
+    </footer>
+</body>
+</html>
