@@ -60,6 +60,12 @@ make build-embedded PSIPHON_CONFIG=./psiphon_config.json
 
 See [GET_CONFIG.md](GET_CONFIG.md) for all options. If you don't have the iOS app, contact Psiphon (info@psiphon.ca) to obtain valid configuration values.
 
+## Security & Firewall
+
+By default, Conduit accepts connections from anywhere. If you want to restrict traffic to specific regions (e.g., only Iran), see [SECURITY_FIREWALL.md](SECURITY_FIREWALL.md) for firewall configuration guides.
+
+**Windows users:** Check out the [Iran Conduit Firewall](https://github.com/SamNet-dev/iran-conduit-firewall) project for an automated solution with explicit blocking rules and full IPv6 support.
+
 ### Optimal Settings for Maximum Users
 
 For the easiest way to configure optimal max-clients and bandwidth:
