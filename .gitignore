@@ -55,3 +55,10 @@ Thumbs.db
 
 # Go test cache
 .cache/
+
+# Dashboard
+dashboard/node_modules/
+dashboard/data/
+dashboard/.env
+dashboard/*.db
+dashboard/package-lock.json
