@@ -76,8 +76,9 @@ else
     echo "Warning: psiphon_config.json not found. Using embedded config if available."
 fi
 
-# Start Conduit
+# Start Conduit with stats file enabled
 ./dist/conduit start $CONFIG_ARG \
     --max-clients "$MAX_CLIENTS" \
     --bandwidth "$BANDWIDTH" \
-    -v
+    -v \
+    --stats-file

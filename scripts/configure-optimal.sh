@@ -185,12 +185,13 @@ fi
 echo "Starting Conduit with optimal settings:"
 echo "  Max Clients: $MAX_CLIENTS"
 echo "  Bandwidth:   $BANDWIDTH Mbps"
+echo "  Stats File:  Enabled (for dashboard)"
 echo ""
 
 osascript <<APPLESCRIPT
 tell application "Terminal"
     activate
-    do script "cd '\$SCRIPT_DIR' && \$CONDUIT start \$CONFIG_ARG --max-clients $MAX_CLIENTS --bandwidth $BANDWIDTH -v"
+    do script "cd '\$SCRIPT_DIR' && \$CONDUIT start \$CONFIG_ARG --max-clients $MAX_CLIENTS --bandwidth $BANDWIDTH -v --stats-file"
 end tell
 APPLESCRIPT
 EOF
@@ -208,7 +209,10 @@ else
     echo ""
     echo "To use these settings, run:"
     echo "  ./dist/conduit start --psiphon-config ./psiphon_config.json \\"
-    echo "    --max-clients $MAX_CLIENTS --bandwidth $BANDWIDTH -v"
+    echo "    --max-clients $MAX_CLIENTS --bandwidth $BANDWIDTH -v --stats-file"
+    echo ""
+    echo "Then run the dashboard in another terminal:"
+    echo "  ./scripts/dashboard.sh"
 fi
 
 echo ""

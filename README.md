@@ -73,7 +73,7 @@ By default, Conduit accepts connections from anywhere. If you want to restrict t
 
 **Windows users:** Check out the [Iran Conduit Firewall](https://github.com/SamNet-dev/iran-conduit-firewall) project for an automated solution with explicit blocking rules and full IPv6 support.
 
-### Optimal Settings for Maximum Users
+### Optimal Settings for Maximum Iranians
 
 For the easiest way to configure optimal max-clients and bandwidth:
 
@@ -86,6 +86,21 @@ For the easiest way to configure optimal max-clients and bandwidth:
 ```
 
 See [docs/markdown/CONFIG_OPTIMAL.md](docs/markdown/CONFIG_OPTIMAL.md) for detailed guidance.
+
+### Live Dashboard
+
+Monitor your Conduit node in real-time with the live dashboard:
+
+```bash
+# Start Conduit with dashboard
+./scripts/start-with-dashboard.sh
+
+# Or start manually, then run dashboard in another terminal
+./dist/conduit start --psiphon-config ./psiphon_config.json -v --stats-file
+./scripts/dashboard.sh
+```
+
+See [docs/markdown/DASHBOARD.md](docs/markdown/DASHBOARD.md) for full dashboard documentation.
 
 ## Usage
 
