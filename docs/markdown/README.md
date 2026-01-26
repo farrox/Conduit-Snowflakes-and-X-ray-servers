@@ -13,6 +13,7 @@ This directory contains all markdown documentation for the Conduit CLI project.
 - **[INSTALL_MAC.md](INSTALL_MAC.md)** - Detailed macOS installation guide
 - **[INSTALL-GO.md](INSTALL-GO.md)** - Go installation instructions
 - **[SETUP-GUIDE.md](SETUP-GUIDE.md)** - Comprehensive setup walkthrough
+- **[CONDUIT_MANAGER_MAC.md](CONDUIT_MANAGER_MAC.md)** - Docker-based manager for macOS (by polamgh)
 
 ## Configuration
 
@@ -33,3 +34,4 @@ This directory contains all markdown documentation for the Conduit CLI project.
 ## Main Documentation
 
 - **[../../README.md](../../README.md)** - Main project README (in root directory)
+- **[../../ACKNOWLEDGEMENTS.md](../../ACKNOWLEDGEMENTS.md)** - Credits and acknowledgements

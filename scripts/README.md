@@ -2,6 +2,18 @@
 
 This directory contains helper scripts to make Conduit easier to use and distribute.
 
+## Docker-Based Manager
+
+### `conduit-manager-mac.sh`
+**Professional Docker-based management tool for macOS** with beautiful UI and live dashboard.
+
+- **Source:** Based on [conduit-manager-mac](https://github.com/polamgh/conduit-manager-mac) by [polamgh](https://github.com/polamgh)
+- **Features:** Live dashboard, smart start/stop, easy reconfiguration
+- **Requirements:** Docker Desktop for macOS
+- **Usage:** `./scripts/conduit-manager-mac.sh`
+
+See [docs/markdown/CONDUIT_MANAGER_MAC.md](../docs/markdown/CONDUIT_MANAGER_MAC.md) for full documentation.
+
 ## For End Users
 
 ### `easy-setup.sh`

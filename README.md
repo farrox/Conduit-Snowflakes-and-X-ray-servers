@@ -8,13 +8,20 @@ Command-line interface for running a Psiphon Conduit node - a volunteer-run prox
 
 ### Quick Options:
 
-**Option 1: Download DMG (Easiest)**
+**Option 1: Docker Manager (Easiest - No Build Required)**
+If you have Docker Desktop installed, use the Docker-based manager:
+```bash
+./scripts/conduit-manager-mac.sh
+```
+This provides a beautiful UI with live dashboard. See [docs/markdown/CONDUIT_MANAGER_MAC.md](docs/markdown/CONDUIT_MANAGER_MAC.md) for details.
+
+**Option 2: Download DMG (Native Binary)**
 1. Download the DMG from the website/releases
 2. Double-click to mount
 3. Drag "Conduit" to Applications
 4. Double-click "Start Conduit.command"
 
-**Option 2: Clone & Auto-Setup**
+**Option 3: Clone & Auto-Setup (Build from Source)**
 ```bash
 git clone [repo-url]
 cd conduit_emergency
@@ -177,6 +184,15 @@ Keys and state are stored in the data directory (default: `./data`):
 - `conduit_key.json` - Node identity keypair (preserve this!)
 
 The broker builds reputation for your proxy based on this key. If you lose it, you'll need to build reputation from scratch.
+
+## Community & Acknowledgements
+
+This project incorporates and references several excellent community contributions:
+
+- **[Conduit Manager for macOS](https://github.com/polamgh/conduit-manager-mac)** - Docker-based management tool with beautiful UI (by [polamgh](https://github.com/polamgh))
+- **[Iran Conduit Firewall](https://github.com/SamNet-dev/iran-conduit-firewall)** - Windows firewall solution for traffic restriction (by [SamNet-dev](https://github.com/SamNet-dev))
+
+See [ACKNOWLEDGEMENTS.md](ACKNOWLEDGEMENTS.md) for full credits and links.
 
 ## License
 
