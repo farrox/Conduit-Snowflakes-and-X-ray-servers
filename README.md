@@ -61,6 +61,7 @@ See [Installation Guide](docs/markdown/INSTALL_MAC.md) for detailed instructions
 
 **Perfect for:** Developers or users who want full control
 
+**macOS:**
 ```bash
 # Clone repository
 git clone https://github.com/farrox/conduit_emergency.git
@@ -72,11 +73,20 @@ cd conduit_emergency
 # Then double-click "Start Conduit.command"
 ```
 
+**Linux/VPS (One-Command Install):**
+```bash
+# One command installs everything
+curl -sL https://raw.githubusercontent.com/farrox/conduit_emergency/main/scripts/install-linux.sh | sudo bash
+
+# Or with custom settings
+curl -sL https://raw.githubusercontent.com/farrox/conduit_emergency/main/scripts/install-linux.sh | MAX_CLIENTS=500 BANDWIDTH=10 sudo bash
+```
+
 ✅ Automated setup (installs everything)  
-✅ Creates launcher script  
+✅ Creates launcher script (macOS) or systemd service (Linux)  
 ✅ Full customization
 
-See [Quick Start Guide](docs/markdown/QUICKSTART_MAC.md) for step-by-step instructions.
+See [Quick Start Guide](docs/markdown/QUICKSTART_MAC.md) for macOS step-by-step instructions.
 
 ---
 
@@ -213,7 +223,18 @@ Deploy Conduit to cloud providers like DigitalOcean, Linode, Hetzner, AWS, Googl
 - **[Cloud Deployment Guide](docs/markdown/DEPLOY_CLOUD.md)** - Complete guide for all major cloud providers
 - **[Deployment TODO Checklist](DEPLOY_TODO.md)** - Quick reference checklist
 
-**Quick start (Docker on Ubuntu):**
+### Quick Start (Linux VPS)
+
+**Option 1: One-Command Install (Recommended)**
+```bash
+# Installs everything: Go, builds from source, creates systemd service
+curl -sL https://raw.githubusercontent.com/farrox/conduit_emergency/main/scripts/install-linux.sh | sudo bash
+
+# With custom settings
+curl -sL https://raw.githubusercontent.com/farrox/conduit_emergency/main/scripts/install-linux.sh | MAX_CLIENTS=500 BANDWIDTH=10 sudo bash
+```
+
+**Option 2: Docker**
 ```bash
 # Install Docker
 curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh

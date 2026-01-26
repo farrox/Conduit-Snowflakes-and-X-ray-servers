@@ -17,7 +17,28 @@ This guide covers deploying Conduit to cloud providers like DigitalOcean, Linode
 
 ## Quick Start
 
-**Fastest deployment (Docker):**
+**Fastest deployment (One-Command Install - Recommended):**
+```bash
+# 1. Create Ubuntu 22.04 server
+# 2. SSH into server
+ssh root@your-server-ip
+
+# 3. One command installs everything
+curl -sL https://raw.githubusercontent.com/farrox/conduit_emergency/main/scripts/install-linux.sh | sudo bash
+
+# 4. Add your config file
+# Upload psiphon_config.json to /opt/conduit/
+scp psiphon_config.json root@your-server-ip:/opt/conduit/
+
+# 5. Start the service
+sudo systemctl start conduit
+
+# 6. Check status
+sudo systemctl status conduit
+sudo journalctl -u conduit -f
+```
+
+**Alternative: Docker deployment:**
 ```bash
 # 1. Create Ubuntu 22.04 server
 # 2. SSH into server
@@ -187,14 +208,33 @@ docker ps
 docker logs -f conduit
 ```
 
-### Method 2: Native Binary
+### Method 2: Native Binary (One-Command Install - Recommended)
 
 **Advantages:**
 - ✅ Lower resource usage
 - ✅ No Docker overhead
 - ✅ Direct process control
+- ✅ Automatic systemd service
+- ✅ One command installs everything
 
-**Installation:**
+**Installation (Easiest):**
+
+```bash
+# One command installs: Go, builds from source, creates systemd service
+curl -sL https://raw.githubusercontent.com/farrox/conduit_emergency/main/scripts/install-linux.sh | sudo bash
+
+# With custom settings
+curl -sL https://raw.githubusercontent.com/farrox/conduit_emergency/main/scripts/install-linux.sh | MAX_CLIENTS=500 BANDWIDTH=10 sudo bash
+
+# Add config file
+scp psiphon_config.json root@server:/opt/conduit/
+
+# Start service
+sudo systemctl start conduit
+sudo systemctl status conduit
+```
+
+**Manual Installation (if you prefer):**
 
 ```bash
 # Install Go 1.24.x
