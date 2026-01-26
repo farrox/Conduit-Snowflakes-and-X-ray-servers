@@ -135,6 +135,33 @@ cd conduit_emergency</code></pre>
                 <li>Then use the new launcher: <code>Start Conduit (Optimal).command</code></li>
             </ol>
 
+            <h3>Step 6: View the Dashboard (Optional but Recommended)</h3>
+            <p>See your Conduit node in action with the live dashboard! If you started Conduit with <code>--stats-file</code>, you can view real-time statistics:</p>
+            <ol>
+                <li>Open a new Terminal window</li>
+                <li>Navigate to the project folder (if needed)</li>
+                <li>Run:
+                    <div class="code-block">
+                        <pre><code>./scripts/dashboard.sh</code></pre>
+                    </div>
+                </li>
+            </ol>
+            <p>The dashboard shows:</p>
+            <ul>
+                <li>✅ How many Iranians are connected</li>
+                <li>✅ CPU and RAM usage</li>
+                <li>✅ Upload and download traffic</li>
+                <li>✅ Auto-updates every 5 seconds</li>
+            </ul>
+            <div style="text-align: center; margin: 2rem 0;">
+                <img src="resources/dashboard.png" alt="Conduit Live Dashboard" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 2px solid #e0e0e0;">
+                <p style="margin-top: 1rem; color: #666; font-size: 0.9rem;">Live Dashboard showing real-time monitoring</p>
+            </div>
+            <p><strong>Tip:</strong> To start Conduit with the dashboard automatically, use:</p>
+            <div class="code-block">
+                <pre><code>./scripts/start-with-dashboard.sh</code></pre>
+            </div>
+
             <h3>That's It!</h3>
             <p>Conduit is now running and helping Iranians access the internet.</p>
 

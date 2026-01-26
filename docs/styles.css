@@ -217,6 +217,17 @@ footer p {
     opacity: 0.8;
 }
 
+/* Images */
+.content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border: 2px solid #e0e0e0;
+    display: block;
+    margin: 1.5rem auto;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     nav .container {

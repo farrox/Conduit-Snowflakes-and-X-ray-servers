@@ -2,6 +2,10 @@
 
 The CLI version now includes a live dashboard similar to the Docker version, showing real-time monitoring of your Conduit node.
 
+![Live Dashboard Screenshot](../resources/dashboard.png)
+
+*The dashboard shows real-time monitoring of your Conduit node, including connected Iranians, CPU/RAM usage, and traffic statistics.*
+
 ## Quick Start
 
 ### Option 1: Start with Dashboard (Easiest)
