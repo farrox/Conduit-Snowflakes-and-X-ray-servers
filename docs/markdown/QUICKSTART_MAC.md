@@ -26,7 +26,7 @@ The config file connects you to the Psiphon network. Here's the easiest way:
 ### If You Have the iOS Conduit App:
 1. In Terminal, type this and press Enter:
    ```bash
-   ./extract-ios-config.sh
+   ./scripts/extract-ios-config.sh
    ```
 2. If it says "✅ Copied!", you're done! Skip to Step 3.
 
@@ -110,7 +110,7 @@ Conduit is now running and helping users in censored regions access the internet
 In Terminal, type:
 ```bash
 chmod +x scripts/*.sh
-chmod +x extract-ios-config.sh
+chmod +x scripts/extract-ios-config.sh
 ```
 
 ### "Command not found: make"
@@ -136,4 +136,4 @@ Run the setup script again:
 
 - See [GET_CONFIG.md](GET_CONFIG.md) for detailed config instructions
 - See [CONFIG_OPTIMAL.md](CONFIG_OPTIMAL.md) for optimal settings guide
-- See [README.md](README.md) for full documentation
+- See [../README.md](../../README.md) for full documentation

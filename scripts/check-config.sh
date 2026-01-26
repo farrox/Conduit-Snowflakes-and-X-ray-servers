@@ -69,10 +69,10 @@ for pattern in "${LOCATIONS[@]}"; do
 done
 
 # Check iOS app locations (if scripts exist)
-if [ -f "$PROJECT_ROOT/find-psiphon-config.sh" ]; then
+if [ -f "$PROJECT_ROOT/scripts/find-psiphon-config.sh" ]; then
     echo ""
     echo "🔍 Checking iOS app locations..."
-    IOS_CONFIG=$(bash "$PROJECT_ROOT/find-psiphon-config.sh" 2>/dev/null | grep "Found:" | head -1 | sed 's/.*Found: //')
+    IOS_CONFIG=$(bash "$PROJECT_ROOT/scripts/find-psiphon-config.sh" 2>/dev/null | grep "Found:" | head -1 | sed 's/.*Found: //')
     if [ -n "$IOS_CONFIG" ] && [ -f "$IOS_CONFIG" ]; then
         echo "   ✅ Found in iOS app: $IOS_CONFIG"
         FOUND_ANY=1
@@ -103,7 +103,7 @@ echo "Options (in order of ease):"
 echo ""
 echo "1. 📱 Extract from iOS App (Easiest - No Email!)"
 echo "   If you have the iOS Conduit app installed, run:"
-echo "   ./extract-ios-config.sh"
+echo "   ./scripts/extract-ios-config.sh"
 echo "   This extracts the config from the app bundle (just like the GUI uses)"
 echo ""
 echo "2. 🔍 Check Your Email/Backups"

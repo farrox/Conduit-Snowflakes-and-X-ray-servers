@@ -30,7 +30,7 @@ pkill -f 'conduit start'
 ### Restart with Optimized Settings
 ```bash
 cd /Users/ed/Developer/conduit_emergency
-./start_optimized.sh
+./scripts/start_optimized.sh
 ```
 
 This script will automatically:
@@ -50,7 +50,7 @@ cd /Users/ed/Developer/conduit_emergency
 
 ## Re-testing Bandwidth
 
-The `start_optimized.sh` script automatically tests bandwidth each time you run it using the official Ookla Speedtest.
+The `scripts/start_optimized.sh` script automatically tests bandwidth each time you run it using the official Ookla Speedtest.
 
 To manually test:
 ```bash

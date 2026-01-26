@@ -12,10 +12,10 @@ If you have the iOS Conduit app installed (even in simulator), you can extract t
 
 ```bash
 # Automatic extraction
-./extract-ios-config.sh
+./scripts/extract-ios-config.sh
 
 # Or search for it
-./find-psiphon-config.sh
+./scripts/find-psiphon-config.sh
 ```
 
 This will find and copy the config from:
@@ -45,7 +45,7 @@ If you don't have the iOS app and need a fresh config:
 
 1. **Extract from iOS app** (if you have it):
    ```bash
-   ./extract-ios-config.sh
+   ./scripts/extract-ios-config.sh
    ```
 
 2. **Or build with embedded config**:
@@ -75,7 +75,7 @@ For distribution, create a DMG with embedded config:
 
 ```bash
 # Get config first
-./extract-ios-config.sh  # or get from Psiphon
+./scripts/extract-ios-config.sh  # or get from Psiphon
 
 # Create DMG with embedded config
 ./scripts/create-dmg.sh ./psiphon_config.json

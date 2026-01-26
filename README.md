@@ -4,7 +4,7 @@ Command-line interface for running a Psiphon Conduit node - a volunteer-run prox
 
 ## 🚀 Quick Start for Mac Users
 
-**New to this? Start here:** [QUICKSTART_MAC.md](QUICKSTART_MAC.md) - Simple step-by-step guide for non-technical users.
+**New to this? Start here:** [docs/markdown/QUICKSTART_MAC.md](docs/markdown/QUICKSTART_MAC.md) - Simple step-by-step guide for non-technical users.
 
 ### Quick Options:
 
@@ -22,7 +22,7 @@ cd conduit_emergency
 # Then double-click "Start Conduit.command"
 ```
 
-See [INSTALL_MAC.md](INSTALL_MAC.md) for detailed instructions.
+See [docs/markdown/INSTALL_MAC.md](docs/markdown/INSTALL_MAC.md) for detailed instructions.
 
 ## Quick Start
 
@@ -42,7 +42,7 @@ make build
 - **Go 1.24.x** (Go 1.25+ is not supported due to psiphon-tls compatibility)
 - Psiphon network configuration file (JSON)
 
-**Installing Go:** See [INSTALL-GO.md](INSTALL-GO.md) for installation instructions.
+**Installing Go:** See [docs/markdown/INSTALL-GO.md](docs/markdown/INSTALL-GO.md) for installation instructions.
 
 ## Configuration
 
@@ -50,7 +50,7 @@ Conduit requires a Psiphon network configuration file containing connection para
 
 **No email required!** If you have the iOS Conduit app, extract the config:
 ```bash
-./extract-ios-config.sh  # Extracts from iOS app bundle
+./scripts/extract-ios-config.sh  # Extracts from iOS app bundle
 ```
 
 Or build with embedded config (like the iOS app):
@@ -58,11 +58,11 @@ Or build with embedded config (like the iOS app):
 make build-embedded PSIPHON_CONFIG=./psiphon_config.json
 ```
 
-See [GET_CONFIG.md](GET_CONFIG.md) for all options. If you don't have the iOS app, contact Psiphon (info@psiphon.ca) to obtain valid configuration values.
+See [docs/markdown/GET_CONFIG.md](docs/markdown/GET_CONFIG.md) for all options. If you don't have the iOS app, contact Psiphon (info@psiphon.ca) to obtain valid configuration values.
 
 ## Security & Firewall
 
-By default, Conduit accepts connections from anywhere. If you want to restrict traffic to specific regions (e.g., only Iran), see [SECURITY_FIREWALL.md](SECURITY_FIREWALL.md) for firewall configuration guides.
+By default, Conduit accepts connections from anywhere. If you want to restrict traffic to specific regions (e.g., only Iran), see [docs/markdown/SECURITY_FIREWALL.md](docs/markdown/SECURITY_FIREWALL.md) for firewall configuration guides.
 
 **Windows users:** Check out the [Iran Conduit Firewall](https://github.com/SamNet-dev/iran-conduit-firewall) project for an automated solution with explicit blocking rules and full IPv6 support.
 
@@ -78,7 +78,7 @@ For the easiest way to configure optimal max-clients and bandwidth:
 ./scripts/quick-optimal.sh
 ```
 
-See [CONFIG_OPTIMAL.md](CONFIG_OPTIMAL.md) for detailed guidance.
+See [docs/markdown/CONFIG_OPTIMAL.md](docs/markdown/CONFIG_OPTIMAL.md) for detailed guidance.
 
 ## Usage
 

@@ -19,7 +19,7 @@ This folder contains a **complete, working copy** of the Conduit CLI that can be
 - **Build System**: `Makefile`, `go.mod`, `go.sum`
 - **Documentation**: `README.md`, `SETUP-GUIDE.md`, `INSTALL-GO.md`
 - **Config Files**: `psiphon_config.json` (real config), `psiphon_config.example.json`
-- **Helper Scripts**: `find-psiphon-config.sh`, `extract-ios-config.sh`
+- **Helper Scripts**: `scripts/find-psiphon-config.sh`, `scripts/extract-ios-config.sh`
 - **Built Binary**: `dist/conduit` (ready to run if Go 1.24.x is available)
 
 ### What's NOT Included (Will Be Generated)
