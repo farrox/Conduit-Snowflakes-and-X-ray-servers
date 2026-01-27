@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snowflake Guide - Conduit CLI</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <h1>Conduit CLI</h1>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="quickstart.html">Quick Start</a></li>
+                    <li><a href="getting-started.html">Getting Started</a></li>
+                    <li><a href="install.html">Installation</a></li>
+                    <li><a href="setup.html">Setup</a></li>
+                    <li><a href="usage.html">Usage</a></li>
+                    <li><a href="snowflake.html" class="active">Snowflake</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="content">
+            <h2>Adding Snowflake Capabilities</h2>
+            <p><strong>A comprehensive guide to adding Snowflake</strong> (censorship circumvention via WebRTC proxies) alongside or into your setup. Snowflake helps censored users reach the Tor network—or your own services—through volunteer-run proxies.</p>
+
+            <h3>What is Snowflake?</h3>
+            <p>Snowflake is a pluggable transport developed by the Tor Project. Volunteer proxies use WebRTC to relay traffic from censored users to the Tor network (or, in generalized setups, to other services). Running a Snowflake proxy helps people in censored regions connect without revealing their use of circumvention tools.</p>
+
+            <h3>How This Fits With Conduit</h3>
+            <p><strong>Conduit</strong> is a Psiphon inproxy (Psiphon’s transport). <strong>Snowflake</strong> is a Tor pluggable transport. They are different ecosystems. Adding Snowflake usually means:</p>
+            <ul>
+                <li><strong>Run both:</strong> Conduit + Snowflake proxy on the same machine (two separate processes), or</li>
+                <li><strong>Use Snowflake tech for your own service:</strong> e.g. snowflake-generalized’s client/server to tunnel to VPN/SOCKS, with Tor’s or a custom proxy.</li>
+            </ul>
+
+            <hr style="margin: 2rem 0; border: none; border-top: 2px solid #e0e0e0;">
+
+            <h2>Where to Start</h2>
+
+            <h3>1. Official Tor Snowflake — Run a Snowflake Proxy</h3>
+            <p><strong>Best for:</strong> Helping Tor users by running a Snowflake proxy (e.g. on the same host as Conduit).</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Resource</th>
+                        <th>Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Code (GitLab)</td>
+                        <td><a href="https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake" target="_blank" rel="noopener">gitlab.torproject.org/.../snowflake</a></td>
+                    </tr>
+                    <tr>
+                        <td>Standalone setup (Docker, Debian, source)</td>
+                        <td><a href="https://community.torproject.org/relay/setup/snowflake/standalone/" target="_blank" rel="noopener">community.torproject.org/relay/setup/snowflake/standalone/</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><strong>Clone and build the proxy:</strong></p>
+            <div class="code-block">
+                <pre><code>git clone https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake.git
+cd snowflake/proxy
+go build
+./proxy   # see Tor’s docs for broker URL and flags</code></pre>
+            </div>
+            <p>Start here: clone the repo, follow the <a href="https://community.torproject.org/relay/setup/snowflake/standalone/" target="_blank" rel="noopener">standalone setup</a> (Docker, source, Debian, or FreeBSD), then run the <code>proxy</code> from <code>proxy/</code>. That’s the minimal “add Snowflake” path: run this proxy next to Conduit.</p>
+
+            <h3>2. Snowflake “Generalized” — Tunnels to Your Own Service</h3>
+            <p><strong>Best for:</strong> Reusing Snowflake’s idea (WebRTC proxies) for <strong>any</strong> TCP/UDP service (VPN, SOCKS, your own backend), not only Tor.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Resource</th>
+                        <th>Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Code (GitHub)</td>
+                        <td><a href="https://github.com/WofWca/snowflake-generalized" target="_blank" rel="noopener">github.com/WofWca/snowflake-generalized</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><strong>Relationship:</strong> Built on a fork of Tor’s Snowflake; adds “connect to arbitrary host” and extra hardening.</p>
+            <p><strong>Layout:</strong></p>
+            <ul>
+                <li><code>client/</code> — client that gets a tunnel to your server</li>
+                <li><code>server/</code> — server that accepts Snowflake connections and forwards to your service</li>
+                <li><code>common/</code>, <code>docs/</code>, <code>examples/</code> — shared code and usage</li>
+            </ul>
+            <p>Start here: clone <a href="https://github.com/WofWca/snowflake-generalized" target="_blank" rel="noopener">WofWca/snowflake-generalized</a>, then follow the “Try it” and “Usage” sections in its README. Use this when your goal is “Snowflake-style transport for my own service” rather than “only Tor.”</p>
+
+            <h3>3. Tor Snowflake on GitHub (Discovery)</h3>
+            <p>Tor’s canonical repo is on <strong>GitLab</strong> (link in section 1). For mirrors and related projects:</p>
+            <ul>
+                <li><a href="https://github.com/search?q=snowflake+tor+proxy" target="_blank" rel="noopener">GitHub search: snowflake tor proxy</a> — find mirrors, wrappers, or Docker images.</li>
+            </ul>
+
+            <hr style="margin: 2rem 0; border: none; border-top: 2px solid #e0e0e0;">
+
+            <h2>Quick Reference: Which Repo?</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>You want to…</th>
+                        <th>Start with</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Run a <strong>Snowflake proxy</strong> on the same box as Conduit (help Tor users)</td>
+                        <td><strong>Tor’s GitLab</strong> — <a href="https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake" target="_blank" rel="noopener">snowflake</a> + <a href="https://community.torproject.org/relay/setup/snowflake/standalone/" target="_blank" rel="noopener">standalone setup</a></td>
+                    </tr>
+                    <tr>
+                        <td>Build a <strong>Snowflake-style tunnel</strong> to your own service (e.g. VPN/SOCKS), not Tor</td>
+                        <td><strong>GitHub</strong> — <a href="https://github.com/WofWca/snowflake-generalized" target="_blank" rel="noopener">WofWca/snowflake-generalized</a></td>
+                    </tr>
+                    <tr>
+                        <td>Understand <strong>design and protocols</strong></td>
+                        <td>Tor Snowflake repo (above) + <a href="https://www.bamsoftware.com/papers/snowflake/" target="_blank" rel="noopener">Snowflake paper</a></td>
+                    </tr>
+                    <tr>
+                        <td>Run Snowflake proxy via <strong>Docker</strong></td>
+                        <td><a href="https://community.torproject.org/relay/setup/snowflake/standalone/docker/" target="_blank" rel="noopener">Tor’s Docker setup</a></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>One-Line “Where to Start”</h2>
+            <ul>
+                <li><strong>“I want to run a Snowflake proxy”</strong> → <a href="https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake" target="_blank" rel="noopener">https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake</a> and <a href="https://community.torproject.org/relay/setup/snowflake/standalone/" target="_blank" rel="noopener">standalone setup</a>.</li>
+                <li><strong>“I want Snowflake-style tunnels to my own service”</strong> → <a href="https://github.com/WofWca/snowflake-generalized" target="_blank" rel="noopener">https://github.com/WofWca/snowflake-generalized</a>.</li>
+            </ul>
+            <p>Both are in Go and can run on the same server as Conduit. Pick the repo that matches your goal.</p>
+
+            <hr style="margin: 2rem 0; border: none; border-top: 2px solid #e0e0e0;">
+
+            <h3>Markdown Version</h3>
+            <p>A shorter “where to start” reference is also available as markdown:</p>
+            <p><a href="markdown/SNOWFLAKE_WHERE_TO_START.md">SNOWFLAKE_WHERE_TO_START.md</a></p>
+
+            <h3>Community & Acknowledgements</h3>
+            <p>This project incorporates and references excellent community contributions:</p>
+            <ul>
+                <li><a href="https://github.com/polamgh/conduit-manager-mac">Conduit Manager for macOS</a> - Docker-based management tool (by polamgh)</li>
+                <li><a href="https://github.com/SamNet-dev/conduit-manager">Conduit Manager (Linux)</a> - One-click Linux management with live peer mapping (by SamNet-dev)</li>
+                <li><a href="https://github.com/paradixe/conduit-relay">Conduit Relay</a> - Web dashboard with fleet management (by paradixe)</li>
+                <li><a href="https://github.com/SamNet-dev/iran-conduit-firewall">Iran Conduit Firewall</a> - Windows firewall solution (by SamNet-dev)</li>
+            </ul>
+            <p>See <a href="../ACKNOWLEDGEMENTS.md">ACKNOWLEDGEMENTS.md</a> for full credits and links. Snowflake is developed by the Tor Project; snowflake-generalized by WofWca.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Conduit CLI. GNU General Public License v3.0</p>
+        </div>
+    </footer>
+</body>
+</html>
