@@ -42,25 +42,31 @@ curl -sL https://raw.githubusercontent.com/farrox/conduit_emergency/main/scripts
 
 **Or download and run:**
 ```bash
+# No args = start or restart Conduit (non-interactive)
 ./scripts/conduit-manager-mac.sh
+
+# Interactive menu (dashboard, logs, backup, health, update, etc.)
+./scripts/conduit-manager-mac.sh --menu
 ```
 
+**Flags:** `--stop` · `--logs` · `--dashboard` · `--reconfigure` · `--help`
+
 ✅ No building required  
-✅ Beautiful live dashboard  
-✅ Automatic updates  
-✅ Smart start/stop/restart  
-✅ Can be run directly from GitHub URL
+✅ Beautiful live dashboard & live stats stream  
+✅ Backup/restore node key, health check, update image, uninstall  
+✅ Smart start/stop/restart (no args = start/restart)  
+✅ Can be run directly from GitHub URL  
 
 See [Docker Manager Guide](docs/markdown/CONDUIT_MANAGER_MAC.md) for details.
 
 ### Option 2: Download DMG (Native Binary for Mac)
 
-**Perfect for:** Mac users who want a native app without Docker
+**Best for:** Mac users who want a native app without Docker
 
 1. Download the `Conduit.dmg` file
 2. Double-click to mount it
 3. Drag "Conduit" to Applications
-4. Double-click "Start Conduit.command"
+4. Double-click **"Start Conduit.command"** — starts Conduit and opens a **live dashboard** (same style as Option 1: CPU, RAM, connected users, traffic, auto-refresh)
 
 See [Installation Guide](docs/markdown/INSTALL_MAC.md) for detailed instructions.
 
@@ -213,10 +219,14 @@ docker run -d --name conduit \
 
 ### Docker Manager (Mac)
 
-Use the interactive Docker Manager for the easiest experience:
+Use the Docker Manager for the easiest experience:
 
 ```bash
+# Start/restart (no args)
 ./scripts/conduit-manager-mac.sh
+
+# Interactive menu: dashboard, logs, backup, restore, health, update, uninstall
+./scripts/conduit-manager-mac.sh --menu
 ```
 
 See [Docker Manager Guide](docs/markdown/CONDUIT_MANAGER_MAC.md) for details.

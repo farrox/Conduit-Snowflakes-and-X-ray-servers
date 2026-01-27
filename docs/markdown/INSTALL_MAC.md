@@ -9,7 +9,7 @@ If a DMG file is available for download:
 1. **Download the DMG** from the website or GitHub releases
 2. **Double-click the DMG** to mount it
 3. **Drag "Conduit" to your Applications folder**
-4. **Double-click "Start Conduit.command"** in the DMG (or run from Terminal)
+4. **Double-click "Start Conduit.command"** — starts Conduit and opens a **live dashboard** (same style as the Docker manager: CPU, RAM, connected users, traffic, auto-refresh)
 
 That's it! The binary includes everything needed.
 
