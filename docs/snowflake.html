@@ -41,6 +41,21 @@
 
             <hr style="margin: 2rem 0; border: none; border-top: 2px solid #e0e0e0;">
 
+            <h2>Quickest CLI: Run Tor Snowflake Alongside Conduit</h2>
+            <p><strong>If you have Docker</strong> — one command, no config. Uses Tor’s default broker. Runs in the background and survives reboot:</p>
+            <div class="code-block">
+                <pre><code>docker run -d --restart unless-stopped --name snowflake-proxy thetorproject/snowflake-proxy</code></pre>
+            </div>
+            <p>Run Conduit as usual in another terminal or in Docker; Snowflake and Conduit are separate processes/containers.</p>
+            <p><strong>If you don’t have Docker</strong> — clone, build, run (requires <a href="https://go.dev/doc/install" target="_blank" rel="noopener">Go 1.21+</a>):</p>
+            <div class="code-block">
+                <pre><code>git clone --depth 1 https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake.git /tmp/snowflake \
+  &amp;&amp; cd /tmp/snowflake/proxy &amp;&amp; go build -o snowflake-proxy . &amp;&amp; ./snowflake-proxy</code></pre>
+            </div>
+            <p>To run in background: add <code>&amp;</code> at the end, or use <code>nohup ./snowflake-proxy &amp;</code>. To stop: <code>docker stop snowflake-proxy</code> (Docker) or kill the proxy process.</p>
+
+            <hr style="margin: 2rem 0; border: none; border-top: 2px solid #e0e0e0;">
+
             <h2>Where to Start</h2>
 
             <h3>1. Official Tor Snowflake — Run a Snowflake Proxy</h3>

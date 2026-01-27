@@ -4,6 +4,27 @@ If you want to add **Snowflake** (censorship circumvention via WebRTC proxies) a
 
 ---
 
+## Quickest CLI: run Tor Snowflake alongside Conduit
+
+**If you have Docker** — one command, no config. Uses Tor’s default broker. Runs in the background and survives reboot:
+
+```bash
+docker run -d --restart unless-stopped --name snowflake-proxy thetorproject/snowflake-proxy
+```
+
+Run Conduit as usual in another terminal or in Docker; Snowflake and Conduit are separate processes/containers.
+
+**If you don’t have Docker** — clone, build, run (requires [Go 1.21+](https://go.dev/doc/install)):
+
+```bash
+git clone --depth 1 https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake.git /tmp/snowflake \
+  && cd /tmp/snowflake/proxy && go build -o snowflake-proxy . && ./snowflake-proxy
+```
+
+To run in background: add `&` at the end, or use `nohup ./snowflake-proxy &`. To stop: `docker stop snowflake-proxy` (Docker) or kill the proxy process.
+
+---
+
 ## 1. Official Tor Snowflake (run a Snowflake proxy)
 
 **Best for:** Helping Tor users by running a Snowflake proxy (e.g. on the same host as Conduit).
