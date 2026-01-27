@@ -184,7 +184,7 @@ while true; do
     echo " ██║     ██║   ██║██║╚██╗██║██║  ██║██║   ██║██║   ██║   "
     echo " ╚██████╗╚██████╔╝██║ ╚████║██████╔╝╚██████╔╝██║   ██║   "
     echo "  ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚═════╝  ╚═════╝ ╚═╝   ╚═╝   "
-    echo -e "              ${YELLOW}Live Dashboard (DMG)${CYAN}                  "
+    echo -e "              ${YELLOW}macOS Professional Edition${CYAN}                  "
     echo -e "${NC}"
     echo -e "${BOLD}LIVE DASHBOARD${NC} (Press ${YELLOW}Ctrl+C${NC} to exit)"
     echo "══════════════════════════════════════════════════════"

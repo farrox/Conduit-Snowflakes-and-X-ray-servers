@@ -21,6 +21,11 @@ One dashboard works for **Docker** and **native** Conduit: CPU, RAM, connected u
 ./scripts/dashboard.sh
 ```
 
+**Same menu as Docker** (native binary; options 1–9, h, b, r, u, v, 0):
+```bash
+./scripts/conduit-manager-native.sh --menu
+```
+
 **Start Conduit + dashboard** (native, from source):
 ```bash
 ./scripts/start-with-dashboard.sh
@@ -145,6 +150,11 @@ See [Get Config Guide](docs/markdown/GET_CONFIG.md) for all options.
 **View dashboard** (works for Docker or native; run in another terminal if Conduit is already running):
 ```bash
 ./scripts/dashboard.sh
+```
+
+**Native menu** (same options as Docker manager: dashboard, logs, backup, restore, health, etc.):
+```bash
+./scripts/conduit-manager-native.sh --menu
 ```
 
 ---

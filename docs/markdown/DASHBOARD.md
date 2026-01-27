@@ -16,6 +16,12 @@ Works for **Docker** or **native**. Run in the same or another terminal:
 ./scripts/dashboard.sh
 ```
 
+**Same menu as Docker** (native binary; options 1–9, h, b, r, u, v, 0):
+
+```bash
+./scripts/conduit-manager-native.sh --menu
+```
+
 ### Start Conduit + dashboard (from source)
 
 **Option A — two terminals (recommended):**

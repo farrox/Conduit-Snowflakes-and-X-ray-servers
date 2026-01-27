@@ -113,7 +113,7 @@ print_header() {
     echo " ██║     ██║   ██║██║╚██╗██║██║  ██║██║   ██║██║   ██║   "
     echo " ╚██████╗╚██████╔╝██║ ╚████║██████╔╝╚██████╔╝██║   ██║   "
     echo "  ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚═════╝  ╚═════╝ ╚═╝   ╚═╝   "
-    echo -e "              ${YELLOW}Live Dashboard${CYAN}                  "
+    echo -e "              ${YELLOW}macOS Professional Edition${CYAN}                  "
     echo -e "${NC}"
 }
 
@@ -122,7 +122,7 @@ view_dashboard() {
 
     while true; do
         print_header
-        echo -e "${BOLD}LIVE DASHBOARD${NC} (Press ${YELLOW}Ctrl+C${NC} to exit)"
+        echo -e "${BOLD}LIVE DASHBOARD${NC} (Press ${YELLOW}Ctrl+C${NC} to Exit)"
         echo "══════════════════════════════════════════════════════"
 
         if is_docker_running; then
