@@ -160,13 +160,13 @@ cd /path/to/conduit_emergency
 xray run -c scripts/xray-test-config.json</code></pre>
             </div>
             <p>You should see <em>listening TCP on 0.0.0.0:10086</em> and <em>Xray ... started</em>. Stop with Ctrl+C. The config in <code>scripts/xray-test-config.json</code> is for local testing only (VMess, no TLS); replace it with a proper server config for real use.</p>
-            <p><strong>Docker:</strong> With Docker running:</p>
+            <p><strong>Docker:</strong> With Docker running. The official image defaults to a confdir, so override with <code>run -c /etc/xray/config.json</code>:</p>
             <div class="code-block">
                 <pre><code>docker run -d --name xray-test \
   -v "$(pwd)/scripts/xray-test-config.json:/etc/xray/config.json:ro" \
   -p 10086:10086 --restart no \
-  ghcr.io/xtls/xray-core:latest
-docker logs xray-test   # verify "listening TCP on ..." and "started"
+  ghcr.io/xtls/xray-core:latest run -c /etc/xray/config.json
+docker logs xray-test   # verify "Reading config: .../config.json" and "listening TCP on 0.0.0.0:10086" and "started"
 docker stop xray-test</code></pre>
             </div>
 

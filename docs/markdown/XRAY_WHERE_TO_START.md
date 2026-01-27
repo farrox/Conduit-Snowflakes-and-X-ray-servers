@@ -90,7 +90,7 @@ You should see something like: `[Info] transport/internet/tcp: listening TCP on 
 
 ### Docker
 
-With Docker running, use the same config:
+With Docker running, use the same config. The official image defaults to a confdir, so override with `run -c /etc/xray/config.json`:
 
 ```bash
 cd /path/to/conduit_emergency
@@ -98,7 +98,7 @@ docker run -d --name xray-test \
   -v "$(pwd)/scripts/xray-test-config.json:/etc/xray/config.json:ro" \
   -p 10086:10086 \
   --restart no \
-  ghcr.io/xtls/xray-core:latest
-docker logs xray-test   # verify “listening TCP on ...” and “started”
+  ghcr.io/xtls/xray-core:latest run -c /etc/xray/config.json
+docker logs xray-test   # verify "Reading config: .../config.json" and "listening TCP on 0.0.0.0:10086" and "started"
 docker stop xray-test
 ```
