@@ -54,6 +54,15 @@
             </div>
             <p>To run in background: add <code>&amp;</code> at the end, or use <code>nohup ./snowflake-proxy &amp;</code>. To stop: <code>docker stop snowflake-proxy</code> (Docker) or kill the proxy process.</p>
 
+            <h3>Verify and troubleshoot</h3>
+            <ul>
+                <li><strong>Docker:</strong> “failed to connect to the docker API” or “no such file or directory” → start <strong>Docker Desktop</strong> (Mac/Windows), then rerun the <code>docker run</code> command. If you don’t use Docker, use the from-source one-liner above.</li>
+                <li><strong>Check it’s running:</strong> <code>docker ps | grep snowflake-proxy</code></li>
+                <li><strong>View logs:</strong> <code>docker logs -f snowflake-proxy</code> (Ctrl+C leaves the container running)</li>
+                <li><strong>“NAT type: restricted” in logs:</strong> Normal on a home Mac or consumer connection. The proxy still works and helps Tor users; Tor recommends full-cone/unrestricted NAT for maximum capacity. For more concurrent users, run the same Docker command on a VPS (e.g. same server as Conduit) where NAT is usually unrestricted.</li>
+                <li><strong>Stop:</strong> <code>docker stop snowflake-proxy</code>. To remove the container: <code>docker rm snowflake-proxy</code> (after stopping).</li>
+            </ul>
+
             <hr style="margin: 2rem 0; border: none; border-top: 2px solid #e0e0e0;">
 
             <h2>Where to Start</h2>

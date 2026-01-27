@@ -23,6 +23,14 @@ git clone --depth 1 https://gitlab.torproject.org/tpo/anti-censorship/pluggable-
 
 To run in background: add `&` at the end, or use `nohup ./snowflake-proxy &`. To stop: `docker stop snowflake-proxy` (Docker) or kill the proxy process.
 
+### Verify and troubleshoot
+
+- **Docker:** “failed to connect to the docker API” or “no such file or directory” → start **Docker Desktop** (Mac/Windows), then rerun the `docker run` command. If you don’t use Docker, use the from-source one-liner above.
+- **Check it’s running:** `docker ps | grep snowflake-proxy`
+- **View logs:** `docker logs -f snowflake-proxy` (Ctrl+C leaves the container running)
+- **“NAT type: restricted” in logs:** Normal on a home Mac or consumer connection. The proxy still works and helps Tor users; Tor recommends full-cone/unrestricted NAT for maximum capacity. For more concurrent users, run the same Docker command on a VPS (e.g. same server as Conduit) where NAT is usually unrestricted.
+- **Stop:** `docker stop snowflake-proxy`. To remove the container: `docker rm snowflake-proxy` (after stopping).
+
 ---
 
 ## 1. Official Tor Snowflake (run a Snowflake proxy)
