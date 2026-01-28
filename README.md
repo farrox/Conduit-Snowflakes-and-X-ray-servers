@@ -121,18 +121,27 @@ You need a `psiphon_config.json` file. Create this file in the **repo root** (th
 
 ```json
 {
-    "PropagationChannelId": "YOUR_CHANNEL_ID_HERE",
-    "SponsorId": "YOUR_SPONSOR_ID_HERE",
-    "AdditionalParameters": {
-        "YOUR_BASE64_ENCRYPTED_BROKER_CONFIG_HERE"
-    }
+    "PropagationChannelId": "AAAAAAAAAAAAAAAA",
+    "SponsorId": "BBBBBBBBBBBBBBBB",
+    "AdditionalParameters": "VGhpcyBpcyBhIHZlcnkgbG9uZyBiYXNlNjQtZW5jb2RlZCBlbmNyeXB0ZWQgc3RyaW5nIGNvbnRhaW5pbmcgeW91ciBQc2lwaG9uIG5ldHdvcmsgYnJva2VyIGNvbmZpZ3VyYXRpb24uLi4gW3RoaXMgd2lsbCBiZSBhcm91bmQgMTUtMjBLQiBvZiBiYXNlNjQgZGF0YV0=",
+    "DNSResolverCacheExtensionInitialTTLMilliseconds": 60000,
+    "DNSResolverCacheExtensionVerifiedTTLMilliseconds": 86400000,
+    "EmitDiagnosticNotices": true,
+    "EmitDiagnosticNetworkParameters": true,
+    "EmitServerAlerts": true,
+    "ServerEntrySignaturePublicKey": "YOUR_SERVER_ENTRY_PUBLIC_KEY_HERE",
+    "RemoteServerListSignaturePublicKey": "YOUR_REMOTE_SERVER_LIST_PUBLIC_KEY_HERE",
+    "EnableFeedbackUpload": true,
+    "FeedbackEncryptionPublicKey": "YOUR_FEEDBACK_ENCRYPTION_PUBLIC_KEY_HERE",
+    "EnableUpgradeDownload": false
 }
 ```
 
 **What to change:**
-- Replace `YOUR_CHANNEL_ID_HERE` with your Psiphon channel ID
-- Replace `YOUR_SPONSOR_ID_HERE` with your Psiphon sponsor ID  
-- Replace the `AdditionalParameters` content with your encrypted broker configuration
+- Replace `AAAAAAAAAAAAAAAA` with your 16-character Psiphon channel ID (hex)
+- Replace `BBBBBBBBBBBBBBBB` with your 16-character Psiphon sponsor ID (hex)
+- Replace the `AdditionalParameters` value with your very long base64-encoded encrypted broker configuration (15-20KB)
+- Replace the three public key placeholders with your actual public keys from Psiphon
 
 **Where to get these values:**  
 📧 **Email Psiphon** at `info@psiphon.ca` with subject "Request for Conduit CLI Configuration"
