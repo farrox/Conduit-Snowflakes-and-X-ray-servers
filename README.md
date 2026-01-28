@@ -1,384 +1,183 @@
 # Conduit CLI
 
-<div align="center">
-
 **Help Iranians access the open internet by running a volunteer proxy node**
 
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-
-</div>
-
----
-
-## 📊 Live Dashboard
-
-One dashboard works for **Docker** and **native** Conduit: CPU, RAM, connected users, and traffic in real time.
-
-![Live Dashboard](resources/dashboard.png)
-
-**View dashboard** (Conduit already running — Docker or native):
-```bash
-./scripts/dashboard.sh
-```
-
-**Same menu as Docker** (native binary; options 1–9, h, b, r, u, v, 0):
-```bash
-./scripts/conduit-manager-native.sh --menu
-```
-
-**Start Conduit + dashboard** (native, from source):
-```bash
-./scripts/start-with-dashboard.sh
-# or (Option 2–style, one terminal):
-./scripts/test-option2-dashboard.sh
-```
-
-See the [Dashboard Guide](docs/markdown/DASHBOARD.md) for full documentation.
-
----
-
-## 🚀 Quick Start
-
-Get Conduit running in minutes! Choose the method that works best for you:
-
-### Option 1: Docker Manager (Easiest - Recommended for Mac)
-
-**Perfect for:** Mac users who want the simplest setup with a beautiful UI
-
-**Run directly from GitHub:**
-```bash
-curl -sL https://raw.githubusercontent.com/farrox/conduit_emergency/main/scripts/conduit-manager-mac.sh | bash
-```
-
-**Or download and run:**
-```bash
-# No args = start or restart Conduit (non-interactive)
-./scripts/conduit-manager-mac.sh
-
-# Interactive menu (dashboard, logs, backup, health, update, etc.)
-./scripts/conduit-manager-mac.sh --menu
-```
-
-**Flags:** `--stop` · `--logs` · `--dashboard` · `--reconfigure` · `--help`
-
-✅ No building required  
-✅ Beautiful live dashboard & live stats stream  
-✅ Backup/restore node key, health check, update image, uninstall  
-✅ Smart start/stop/restart (no args = start/restart)  
-✅ Can be run directly from GitHub URL  
-
-See [Docker Manager Guide](docs/markdown/CONDUIT_MANAGER_MAC.md) for details.
-
-### Option 2: Download DMG (Native Binary for Mac)
-
-**Best for:** Mac users who want a native app without Docker
-
-1. Download the `Conduit.dmg` file
-2. Double-click to mount it
-3. Drag "Conduit" to Applications
-4. Double-click **"Start Conduit.command"** — starts Conduit and opens a **live dashboard** (same style as Option 1: CPU, RAM, connected users, traffic, auto-refresh)
-
-See [Installation Guide](docs/markdown/INSTALL_MAC.md) for detailed instructions.
-
-### Option 3: Build from Source
-
-**Perfect for:** Developers or users who want full control
-
-**macOS:**
-```bash
-# Clone repository
-git clone https://github.com/farrox/conduit_emergency.git
-cd conduit_emergency
-
-# Run automated setup (installs everything)
-./scripts/easy-setup.sh
-
-# Then double-click "Start Conduit.command"
-```
-
-**Linux/VPS (One-Command Install):**
-```bash
-# One command installs everything
-curl -sL https://raw.githubusercontent.com/farrox/conduit_emergency/main/scripts/install-linux.sh | sudo bash
-
-# Or with custom settings
-curl -sL https://raw.githubusercontent.com/farrox/conduit_emergency/main/scripts/install-linux.sh | MAX_CLIENTS=500 BANDWIDTH=10 sudo bash
-```
-
-✅ Automated setup (installs everything)  
-✅ Creates launcher script (macOS) or systemd service (Linux)  
-✅ Full customization
-
-See [Quick Start Guide](docs/markdown/QUICKSTART_MAC.md) for macOS step-by-step instructions.
-
----
-
-## 📋 What You Need
-
-### 1. Get Your Config File
-
-Conduit needs a `psiphon_config.json` file to connect to the Psiphon network.
-
-**Easiest Method - Extract from iOS App:**
-```bash
-./scripts/extract-ios-config.sh
-```
-
-**Alternative - Email Psiphon:**
-- Email: `info@psiphon.ca`
-- Subject: "Request for Conduit CLI Configuration"
-
-See [Get Config Guide](docs/markdown/GET_CONFIG.md) for all options.
-
-### 2. Start Conduit
-
-**With dashboard (recommended):**
-```bash
-./scripts/start-with-dashboard.sh
-# or from-source “Option 2” style:
-./scripts/test-option2-dashboard.sh
-```
-
-**Manual start:**
-```bash
-./dist/conduit start \
-  --psiphon-config ./psiphon_config.json \
-  -v \
-  --stats-file
-```
-
-**View dashboard** (works for Docker or native; run in another terminal if Conduit is already running):
-```bash
-./scripts/dashboard.sh
-```
-
-**Native menu** (same options as Docker manager: dashboard, logs, backup, restore, health, etc.):
-```bash
-./scripts/conduit-manager-native.sh --menu
-```
-
----
-
-## ⚙️ Configuration
-
-### Optimal Settings for Maximum Iranians
-
-Automatically calculate the best settings for your internet speed:
-
-```bash
-# Interactive configuration helper
-./scripts/configure-optimal.sh
-
-# Or quick start with auto-detection
-./scripts/quick-optimal.sh
-```
-
-This will:
-- ✅ Test your internet bandwidth
-- ✅ Calculate optimal `max-clients` and `bandwidth`
-- ✅ Create a launcher with optimal settings
-
-See [Optimal Configuration Guide](docs/markdown/CONFIG_OPTIMAL.md) for detailed guidance.
-
-### Command Options
-
-| Flag | Default | Description |
-|------|---------|-------------|
-| `--psiphon-config, -c` | - | Path to Psiphon network configuration file |
-| `--max-clients, -m` | 200 | Maximum concurrent clients (1-1000) |
-| `--bandwidth, -b` | 5 | Bandwidth limit per peer in Mbps (1-40) |
-| `--data-dir, -d` | `./data` | Directory for keys and state |
-| `--stats-file` | - | Enable stats file for dashboard |
-| `-v` | - | Verbose output (use `-vv` for debug) |
-
-### Example Commands
-
-```bash
-# Start with default settings
-./dist/conduit start --psiphon-config ./psiphon_config.json
-
-# High-capacity node
-./dist/conduit start \
-  --psiphon-config ./psiphon_config.json \
-  --max-clients 1000 \
-  --bandwidth 40
-
-# With dashboard enabled
-./dist/conduit start \
-  --psiphon-config ./psiphon_config.json \
-  --max-clients 500 \
-  --bandwidth 10 \
-  -v \
-  --stats-file
-```
-
----
-
-## 🐳 Docker
-
-### Quick Start (Recommended)
-
-```bash
-# Build with embedded config
-docker build -t conduit \
-  --build-arg PSIPHON_CONFIG=psiphon_config.json \
-  -f Dockerfile.embedded .
-
-# Run with persistent volume
-docker run -d --name conduit \
-  -v conduit-data:/home/conduit/data \
-  --restart unless-stopped \
-  conduit
-```
-
-**Important:** Always use a persistent volume to preserve your node's identity key and reputation.
-
-### Docker Manager (Mac)
-
-Use the Docker Manager for the easiest experience:
-
-```bash
-# Start/restart (no args)
-./scripts/conduit-manager-mac.sh
-
-# Interactive menu: dashboard, logs, backup, restore, health, update, uninstall
-./scripts/conduit-manager-mac.sh --menu
-```
-
-See [Docker Manager Guide](docs/markdown/CONDUIT_MANAGER_MAC.md) for details.
-
----
-
-## ☁️ Cloud Deployment
-
-Deploy Conduit to cloud providers like DigitalOcean, Linode, Hetzner, AWS, Google Cloud, or Azure:
-
-- **[Cloud Deployment Guide](docs/markdown/DEPLOY_CLOUD.md)** - Complete guide for all major cloud providers
-- **[Deployment TODO Checklist](DEPLOY_TODO.md)** - Quick reference checklist
-
-### Quick Start (Linux VPS)
-
-**Option 1: One-Command Install (Recommended)**
-```bash
-# Installs everything: Go, builds from source, creates systemd service
-curl -sL https://raw.githubusercontent.com/farrox/conduit_emergency/main/scripts/install-linux.sh | sudo bash
-
-# With custom settings
-curl -sL https://raw.githubusercontent.com/farrox/conduit_emergency/main/scripts/install-linux.sh | MAX_CLIENTS=500 BANDWIDTH=10 sudo bash
-```
-
-**Option 2: Docker**
-```bash
-# Install Docker
-curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
-
-# Clone and build
-git clone https://github.com/farrox/conduit_emergency.git
-cd conduit_emergency
-docker build -t conduit --build-arg PSIPHON_CONFIG=psiphon_config.json -f Dockerfile.embedded .
-
-# Run with persistent volume
-docker run -d --name conduit \
-  -v conduit-data:/home/conduit/data \
-  --restart unless-stopped \
-  conduit
-```
-
-See the [full deployment guide](docs/markdown/DEPLOY_CLOUD.md) for systemd services, firewall configuration, monitoring, and provider-specific notes.
-
----
-
-## 🔨 Building from Source
-
-### Requirements
-
-- **Go 1.24.x** (Go 1.25+ is not supported due to psiphon-tls compatibility)
-- Psiphon network configuration file (JSON)
-
-**Installing Go:** See [Go Installation Guide](docs/markdown/INSTALL-GO.md).
-
-### Build Commands
-
-```bash
-# First time setup (clones required dependencies)
-make setup
-
-# Build for current platform
-make build
-
-# Build with embedded config (single-binary distribution)
-make build-embedded PSIPHON_CONFIG=./psiphon_config.json
-
-# Build for all platforms
-make build-all
-
-# Individual platform builds
-make build-linux       # Linux amd64
-make build-linux-arm   # Linux arm64
-make build-darwin      # macOS Intel
-make build-darwin-arm  # macOS Apple Silicon
-make build-windows     # Windows amd64
-```
-
-Binaries are output to `dist/`.
-
----
-
-## 🔒 Security & Firewall
-
-By default, Conduit accepts connections from anywhere. If you want to restrict traffic to specific regions (e.g., only Iran), see [Security & Firewall Guide](docs/markdown/SECURITY_FIREWALL.md).
-
-**Windows users:** Check out the [Iran Conduit Firewall](https://github.com/SamNet-dev/iran-conduit-firewall) project for an automated solution with explicit blocking rules and full IPv6 support.
-
----
-
-## 📁 Data Directory
-
-Keys and state are stored in the data directory (default: `./data`):
-- `conduit_key.json` - Node identity keypair (**preserve this!**)
-- `stats.json` - Statistics file (if `--stats-file` is enabled)
-
-**Important:** The Psiphon broker tracks proxy reputation by key. If you lose `conduit_key.json`, you'll need to build reputation from scratch.
-
-**Backup your data directory regularly!**
+Conduit is a volunteer proxy that helps people in Iran access the open internet. You can also run **Snowflake** (Tor proxy) and **Xray** (VLESS/VMess/REALITY) alongside Conduit.
 
 ---
 
 ## 📚 Documentation
 
+**📖 [View HTML Documentation](docs/index.html)** - Beautiful web-based guides with step-by-step instructions
+
+- [Quick Start](docs/quickstart.html)
+- [Installation Guide](docs/install.html)
+- [Setup Guide](docs/setup.html)
+- [Usage Guide](docs/usage.html)
+- [Snowflake Guide](docs/snowflake.html)
+- [Xray Guide](docs/xray.html)
+
+---
+
+## 🚀 Installation
+
+### macOS
+
+**Option 1: Docker Manager (Easiest - Recommended)**
+```bash
+curl -sL https://raw.githubusercontent.com/farrox/conduit_emergency/main/scripts/conduit-manager-mac.sh | bash
+```
+✅ No building required · Beautiful dashboard · Backup/restore · Auto-updates
+
+**Option 2: Download DMG**
+1. Download `Conduit.dmg`
+2. Double-click to mount
+3. Drag "Conduit" to Applications
+4. Double-click **"Start Conduit.command"**
+
+**Option 3: Build from Source**
+```bash
+git clone https://github.com/farrox/conduit_emergency.git
+cd conduit_emergency
+./scripts/easy-setup.sh
+```
+
+📖 [Detailed Mac Installation Guide](docs/markdown/INSTALL_MAC.md)
+
+---
+
+### Linux
+
+**One-Command Install (Recommended)**
+```bash
+curl -sL https://raw.githubusercontent.com/farrox/conduit_emergency/main/scripts/install-linux.sh | sudo bash
+```
+
+**With Custom Settings**
+```bash
+curl -sL https://raw.githubusercontent.com/farrox/conduit_emergency/main/scripts/install-linux.sh | MAX_CLIENTS=500 BANDWIDTH=10 sudo bash
+```
+
+✅ Installs everything · Creates systemd service · Auto-starts on boot
+
+📖 [Cloud Deployment Guide](docs/markdown/DEPLOY_CLOUD.md) · [Deployment Checklist](docs/reference/DEPLOY_TODO.md)
+
+---
+
+### Windows
+
+**Coming Soon** - Windows support is in development.
+
+For now, Windows users can:
+- Use WSL2 (Windows Subsystem for Linux) and follow the Linux instructions
+- Use Docker Desktop and follow the Docker instructions
+
+📖 [Windows Guide](docs/markdown/INSTALL-GO.md) (WSL2 setup)
+
+---
+
+## 📋 What You Need
+
+1. **Get Config File** - You need a `psiphon_config.json` file
+   - **Easiest:** `./scripts/extract-ios-config.sh` (extract from iOS app)
+   - **Alternative:** Email `info@psiphon.ca` with subject "Request for Conduit CLI Configuration"
+   
+   📖 [Get Config Guide](docs/markdown/GET_CONFIG.md)
+
+2. **Start Conduit** - Run one of the installation options above
+
+---
+
+## 📊 Dashboard
+
+View live stats (CPU, RAM, connected users, traffic):
+
+```bash
+./scripts/dashboard.sh
+```
+
+📖 [Dashboard Guide](docs/markdown/DASHBOARD.md)
+
+---
+
+## ⚙️ Configuration
+
+**Auto-configure optimal settings:**
+```bash
+./scripts/configure-optimal.sh
+```
+
+📖 [Configuration Guide](docs/markdown/CONFIG_OPTIMAL.md) · [All Documentation](docs/markdown/)
+
+---
+
+## 🐳 Docker
+
+**Quick Start:**
+```bash
+docker build -t conduit --build-arg PSIPHON_CONFIG=psiphon_config.json -f Dockerfile.embedded .
+docker run -d --name conduit -v conduit-data:/home/conduit/data --restart unless-stopped conduit
+```
+
+**Mac Docker Manager:**
+```bash
+./scripts/conduit-manager-mac.sh --menu
+```
+
+📖 [Docker Manager Guide](docs/markdown/CONDUIT_MANAGER_MAC.md)
+
+---
+
+## ☁️ Cloud Deployment
+
+Deploy to DigitalOcean, Linode, Hetzner, AWS, Google Cloud, or Azure:
+
+📖 [Cloud Deployment Guide](docs/markdown/DEPLOY_CLOUD.md) · [Deployment Checklist](docs/reference/DEPLOY_TODO.md)
+
+---
+
+## 🔒 Security
+
+By default, Conduit accepts connections from anywhere. To restrict traffic to specific regions:
+
+📖 [Security & Firewall Guide](docs/markdown/SECURITY_FIREWALL.md)
+
+---
+
+## 📚 More Documentation
+
 ### Getting Started
-- **[Quick Start for Mac](docs/markdown/QUICKSTART_MAC.md)** - Simple step-by-step guide for non-technical users
-- **[Installation Guide](docs/markdown/INSTALL_MAC.md)** - Detailed installation options
-- **[Get Config Guide](docs/markdown/GET_CONFIG.md)** - How to get your `psiphon_config.json`
+- [Quick Start for Mac](docs/markdown/QUICKSTART_MAC.md)
+- [Installation Guide](docs/markdown/INSTALL_MAC.md)
+- [Get Config Guide](docs/markdown/GET_CONFIG.md)
 
 ### Configuration
-- **[Optimal Configuration](docs/markdown/CONFIG_OPTIMAL.md)** - Calculate best settings for maximum Iranians
-- **[Dashboard Guide](docs/markdown/DASHBOARD.md)** - Live monitoring dashboard
-- **[Security & Firewall](docs/markdown/SECURITY_FIREWALL.md)** - Restrict traffic to specific regions
+- [Optimal Configuration](docs/markdown/CONFIG_OPTIMAL.md)
+- [Dashboard Guide](docs/markdown/DASHBOARD.md)
+- [Security & Firewall](docs/markdown/SECURITY_FIREWALL.md)
+
+### Run Alongside Conduit
+- [Snowflake Guide](docs/markdown/SNOWFLAKE_WHERE_TO_START.md) - Tor Snowflake proxy
+- [Xray Guide](docs/markdown/XRAY_WHERE_TO_START.md) - VLESS/VMess/REALITY server
 
 ### Deployment
-- **[Cloud Deployment](docs/markdown/DEPLOY_CLOUD.md)** - Deploy to DigitalOcean, Linode, Hetzner, AWS, etc.
-- **[Deployment TODO](DEPLOY_TODO.md)** - Quick reference checklist
-
-### Run alongside Conduit
-- **[Snowflake Guide](docs/markdown/SNOWFLAKE_WHERE_TO_START.md)** - Run Tor Snowflake proxy alongside Conduit
-- **[Xray Guide](docs/markdown/XRAY_WHERE_TO_START.md)** - Run Xray (VLESS/VMess/REALITY) server alongside Conduit
+- [Cloud Deployment](docs/markdown/DEPLOY_CLOUD.md)
+- [Deployment Checklist](docs/reference/DEPLOY_TODO.md)
 
 ### HTML Documentation
-- **[HTML Docs](docs/index.html)** - Beautiful web-based documentation
+- [HTML Docs](docs/index.html) - Beautiful web-based documentation
 
 ---
 
 ## 🤝 Community & Acknowledgements
 
-This project incorporates and references several excellent community contributions:
+This project incorporates excellent community contributions:
+- [Conduit Manager for macOS](https://github.com/polamgh/conduit-manager-mac) - Docker-based management tool
+- [Conduit Manager (Linux)](https://github.com/SamNet-dev/conduit-manager) - One-click Linux management
+- [Conduit Relay](https://github.com/paradixe/conduit-relay) - Web dashboard with fleet management
+- [Iran Conduit Firewall](https://github.com/SamNet-dev/iran-conduit-firewall) - Windows firewall solution
 
-- **[Conduit Manager for macOS](https://github.com/polamgh/conduit-manager-mac)** - Docker-based management tool with beautiful UI (by [polamgh](https://github.com/polamgh))
-- **[Conduit Manager (Linux)](https://github.com/SamNet-dev/conduit-manager)** - One-click Linux management tool with live peer mapping (by [SamNet-dev](https://github.com/SamNet-dev))
-- **[Conduit Relay](https://github.com/paradixe/conduit-relay)** - Web dashboard with fleet management (by [paradixe](https://github.com/paradixe))
-- **[Iran Conduit Firewall](https://github.com/SamNet-dev/iran-conduit-firewall)** - Windows firewall solution for traffic restriction (by [SamNet-dev](https://github.com/SamNet-dev))
-
-See [ACKNOWLEDGEMENTS.md](ACKNOWLEDGEMENTS.md) for full credits and links.
+📖 [Full Acknowledgements](ACKNOWLEDGEMENTS.md)
 
 ---
 
@@ -390,10 +189,10 @@ GNU General Public License v3.0
 
 ## 🆘 Need Help?
 
-1. Check the [Quick Start Guide](docs/markdown/QUICKSTART_MAC.md) for step-by-step instructions
-2. See the [HTML Documentation](docs/index.html) for visual guides
-3. Review the [troubleshooting section](docs/markdown/QUICKSTART_MAC.md#troubleshooting) in the Quick Start guide
-4. Open an issue on GitHub if you need further assistance
+1. Check the [HTML Documentation](docs/index.html) for visual guides
+2. See the [Quick Start Guide](docs/markdown/QUICKSTART_MAC.md) for step-by-step instructions
+3. Review the [troubleshooting section](docs/markdown/QUICKSTART_MAC.md#troubleshooting)
+4. Open an issue on GitHub
 
 ---
 
