@@ -177,6 +177,28 @@ You need a `psiphon_config.json` file. Create this file in the **repo root** (th
 
 ---
 
+## 🔒 Restrict Traffic to Iran (Optional)
+
+Maximize your bandwidth for Iranian users by blocking non-Iran IPs:
+
+**Mac:**
+```bash
+sudo ./scripts/iran-firewall-mac.sh
+```
+
+**Linux:**
+```bash
+sudo ./scripts/iran-firewall-linux.sh
+```
+
+**Windows:** [Iran Conduit Firewall](https://github.com/SamNet-dev/iran-conduit-firewall)
+
+**Features:** Normal mode (UDP Iran-only, TCP global) keeps your node visible while saving bandwidth. Strict mode (both Iran-only) for maximum control.
+
+📖 [Full Security Guide](docs/markdown/SECURITY_FIREWALL.md)
+
+---
+
 ## ❄️ Snowflake Setup
 
 Run a **Tor Snowflake proxy** alongside Conduit to help more people bypass censorship.
@@ -431,6 +453,28 @@ Made with ❤️ for internet freedom
 - **Windows:** از **Notepad** استفاده کنید، paste، Save As `psiphon_config.json` (type: **All Files**)
 
 📖 [راهنمای کامل پیکربندی](docs/markdown/GET_CONFIG.md)
+
+---
+
+## 🔒 محدود کردن ترافیک به ایران (اختیاری)
+
+پهنای باند خود را برای کاربران ایرانی با مسدود کردن IP های غیر ایرانی حداکثر کنید:
+
+**Mac:**
+```bash
+sudo ./scripts/iran-firewall-mac.sh
+```
+
+**Linux:**
+```bash
+sudo ./scripts/iran-firewall-linux.sh
+```
+
+**Windows:** [Iran Conduit Firewall](https://github.com/SamNet-dev/iran-conduit-firewall)
+
+**ویژگی‌ها:** حالت عادی (UDP فقط ایران، TCP جهانی) نود شما را قابل مشاهده نگه می‌دارد در حالی که پهنای باند را ذخیره می‌کند. حالت سخت‌گیرانه (هر دو فقط ایران) برای کنترل حداکثر.
+
+📖 [راهنمای امنیت کامل](docs/markdown/SECURITY_FIREWALL.md)
 
 ---
 

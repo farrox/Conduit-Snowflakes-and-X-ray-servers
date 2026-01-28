@@ -31,25 +31,20 @@ Without firewall restrictions, your Conduit node may accept connections from any
 
 ## macOS Users
 
-### Option 1: Using pfctl (Built-in Firewall)
+### Option 1: Automated Script (Recommended)
 
-Create a firewall script to restrict traffic to specific IP ranges:
+Use our automated Iran-only firewall script:
 
 ```bash
-#!/bin/bash
-# macOS Firewall Script for Conduit
-# Restricts traffic to specific IP ranges (e.g., Iran)
-
-# Load the rules
-sudo pfctl -f /etc/pf.conf
-
-# Allow specific IP ranges (example: Iran IPs)
-# You'll need to get the IP ranges for your target region
-sudo pfctl -t allowed_ips -T add 1.2.3.4/24
-
-# Block everything else for Conduit port
-# (Adjust port based on your Conduit configuration)
+sudo ./scripts/iran-firewall-mac.sh
 ```
+
+**Features:**
+- ✅ Automatically fetches 2000+ Iran IP ranges (IPv4 & IPv6)
+- ✅ **Normal Mode**: UDP Iran-only, TCP global (keeps node visible)
+- ✅ **Strict Mode**: Both UDP & TCP Iran-only
+- ✅ Easy enable/disable
+- ✅ Uses pfctl (macOS built-in firewall)
 
 ### Option 2: Using Little Snitch or Lulu (Third-Party)
 
@@ -70,7 +65,24 @@ If you have a router with firewall capabilities:
 
 ## Linux Users
 
-Use `iptables` or `ufw` to create firewall rules:
+### Option 1: Automated Script (Recommended)
+
+Use our automated Iran-only firewall script:
+
+```bash
+sudo ./scripts/iran-firewall-linux.sh
+```
+
+**Features:**
+- ✅ Automatically fetches 2000+ Iran IP ranges (IPv4 & IPv6)
+- ✅ **Normal Mode**: UDP Iran-only, TCP global (keeps node visible)
+- ✅ **Strict Mode**: Both UDP & TCP Iran-only
+- ✅ Easy enable/disable
+- ✅ Uses iptables
+
+### Option 2: Manual iptables Configuration
+
+If you prefer manual setup:
 
 ```bash
 # Example: Allow only specific IP ranges
