@@ -40,6 +40,9 @@
   ```bash
   ./scripts/conduit-manager-native.sh --menu
   ```
+
+  <img src="resources/dashboard.png" alt="Native Manager Dashboard" width="600">
+
   Or start/restart directly: `./scripts/conduit-manager-native.sh` (no args)
 
 📖 [Mac Installation Guide](docs/markdown/INSTALL_MAC.md)
