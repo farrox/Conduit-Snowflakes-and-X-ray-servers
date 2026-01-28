@@ -30,7 +30,7 @@
 - **Step B.1** Download [Conduit.dmg](https://conduit.psiphon.ca/en/download).
 - **Step B.2** Double-click to mount, then drag **Conduit** to the Applications folder.
 
-  ![Drag Conduit to Applications](resources/drag.png)
+  <img src="resources/drag.png" alt="Drag Conduit to Applications" width="400">
 
 - **Step B.3** Double-click **"Start Conduit.command"**.
 
