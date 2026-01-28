@@ -220,18 +220,7 @@ docker run -d --name xray --restart unless-stopped -v ./xray-config.json:/etc/xr
 - **[Security & Firewall](docs/markdown/SECURITY_FIREWALL.md)** - Restrict traffic to Iran
 - **[Optimal Configuration](docs/markdown/CONFIG_OPTIMAL.md)** - Auto-calculate best settings
 - **[All Guides](docs/markdown/)** - Complete documentation
-
----
-
-## 🤝 Community & Acknowledgements
-
-This project incorporates excellent community contributions:
-- [Conduit Manager for macOS](https://github.com/polamgh/conduit-manager-mac) - Docker-based management tool
-- [Conduit Manager (Linux)](https://github.com/SamNet-dev/conduit-manager) - One-click Linux management
-- [Conduit Relay](https://github.com/paradixe/conduit-relay) - Web dashboard with fleet management
-- [Iran Conduit Firewall](https://github.com/SamNet-dev/iran-conduit-firewall) - Windows firewall solution
-
-📖 [Full Acknowledgements](ACKNOWLEDGEMENTS.md)
+- **[Acknowledgements](ACKNOWLEDGEMENTS.md)** - Community contributions
 
 ---
 
@@ -488,18 +477,7 @@ docker run -d --name xray --restart unless-stopped -v ./xray-config.json:/etc/xr
 - **[امنیت و فایروال](docs/markdown/SECURITY_FIREWALL.md)** - محدود کردن ترافیک به ایران
 - **[پیکربندی بهینه](docs/markdown/CONFIG_OPTIMAL.md)** - محاسبه خودکار بهترین تنظیمات
 - **[تمام راهنماها](docs/markdown/)** - مستندات کامل
-
----
-
-## 🤝 جامعه و قدردانی‌ها
-
-این پروژه شامل مشارکت‌های عالی جامعه است:
-- [Conduit Manager for macOS](https://github.com/polamgh/conduit-manager-mac) - ابزار مدیریت مبتنی بر داکر
-- [Conduit Manager (Linux)](https://github.com/SamNet-dev/conduit-manager) - مدیریت لینوکس با یک کلیک
-- [Conduit Relay](https://github.com/paradixe/conduit-relay) - داشبورد وب با مدیریت ناوگان
-- [Iran Conduit Firewall](https://github.com/SamNet-dev/iran-conduit-firewall) - راه‌حل فایروال ویندوز
-
-📖 [قدردانی‌های کامل](ACKNOWLEDGEMENTS.md)
+- **[قدردانی‌ها](ACKNOWLEDGEMENTS.md)** - مشارکت‌های جامعه
 
 ---
 
