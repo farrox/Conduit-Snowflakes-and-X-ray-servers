@@ -144,9 +144,30 @@ You need a `psiphon_config.json` file. Create this file in the **repo root** (th
 - Replace the three public key placeholders with your actual public keys from Psiphon
 
 **Where to get these values:**  
-📧 **Email Psiphon** at `info@psiphon.ca` with subject "Request for Conduit CLI Configuration"
+📧 **Email Psiphon** at `info@psiphon.ca` with subject "Request for Conduit CLI Configuration" — they'll send you a complete config file.
 
-📖 [Other ways to get config](docs/markdown/GET_CONFIG.md) (extract from iOS app, etc.)
+**How to create the file once you have the config:**
+
+**Mac:**
+1. Open **TextEdit** (in Applications folder)
+2. Format → Make Plain Text
+3. Paste the config Psiphon sent you
+4. Save as `psiphon_config.json` in the repo folder (e.g., `/Users/yourname/Conduit-Snowflakes-and-X-ray-servers/`)
+
+**Linux:**
+```bash
+nano ~/Conduit-Snowflakes-and-X-ray-servers/psiphon_config.json
+```
+Paste the config, press `Ctrl+O` to save, `Ctrl+X` to exit.
+
+**Windows:**
+1. Open **Notepad**
+2. Paste the config Psiphon sent you
+3. File → Save As → navigate to `C:\Users\yourname\Conduit-Snowflakes-and-X-ray-servers\`
+4. File name: `psiphon_config.json` (with quotes)
+5. Save as type: **All Files**
+
+📖 [Extract from iOS app instead](docs/markdown/GET_CONFIG.md) (Mac only)
 
 ---
 
