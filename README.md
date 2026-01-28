@@ -108,11 +108,16 @@
 
 ---
 
-## 📋 What You Need
+## 📋 Before You Start
 
-- **1.** Get a config file (`psiphon_config.json`): run `./scripts/extract-ios-config.sh` (from iOS app) or email `info@psiphon.ca` with subject "Request for Conduit CLI Configuration".  
-  📖 [Get Config Guide](docs/markdown/GET_CONFIG.md)
-- **2.** Start Conduit using one of the installation options above.
+You need a `psiphon_config.json` file with network credentials:
+
+1. **Email Psiphon:** `info@psiphon.ca` with subject "Request for Conduit CLI Configuration"
+2. **Or extract from iOS app:** Run `./scripts/extract-ios-config.sh` if you have the Psiphon iOS app
+
+📖 [Full Config Guide](docs/markdown/GET_CONFIG.md)
+
+Once you have the config, follow the installation steps above.
 
 ---
 
