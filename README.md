@@ -28,7 +28,10 @@
 **Option B: Native**
 
 - **Step B.1** Download [Conduit.dmg](https://conduit.psiphon.ca/en/download).
-- **Step B.2** Double-click to mount, then drag **Conduit** to Applications.
+- **Step B.2** Double-click to mount, then drag **Conduit** to the Applications folder.
+
+  ![Drag Conduit to Applications](resources/drag.png)
+
 - **Step B.3** Double-click **"Start Conduit.command"**.
 
 📖 [Mac Installation Guide](docs/markdown/INSTALL_MAC.md)
