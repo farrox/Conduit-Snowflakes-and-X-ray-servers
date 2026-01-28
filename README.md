@@ -1,3 +1,9 @@
+<div align="right">
+
+[فارسی](README_FA.md) | 🇬🇧 **English**
+
+</div>
+
 <div align="center">
 
 # **Conduit** · **Snowflake** · **Xray** CLI
