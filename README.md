@@ -121,8 +121,8 @@ You need a `psiphon_config.json` file. Create this file in the **repo root** (th
 
 ```json
 {
-    "PropagationChannelId": "AAAAAAAAAAAAAAAA",
-    "SponsorId": "BBBBBBBBBBBBBBBB",
+    "PropagationChannelId": "1234FA5678BC90DE",
+    "SponsorId": "9876AB1234CD5678",
     "AdditionalParameters": "VGhpcyBpcyBhIHZlcnkgbG9uZyBiYXNlNjQtZW5jb2RlZCBlbmNyeXB0ZWQgc3RyaW5nIGNvbnRhaW5pbmcgeW91ciBQc2lwaG9uIG5ldHdvcmsgYnJva2VyIGNvbmZpZ3VyYXRpb24uLi4gW3RoaXMgd2lsbCBiZSBhcm91bmQgMTUtMjBLQiBvZiBiYXNlNjQgZGF0YV0=",
     "DNSResolverCacheExtensionInitialTTLMilliseconds": 60000,
     "DNSResolverCacheExtensionVerifiedTTLMilliseconds": 86400000,
@@ -138,8 +138,8 @@ You need a `psiphon_config.json` file. Create this file in the **repo root** (th
 ```
 
 **What to change:**
-- Replace `AAAAAAAAAAAAAAAA` with your 16-character Psiphon channel ID (hex)
-- Replace `BBBBBBBBBBBBBBBB` with your 16-character Psiphon sponsor ID (hex)
+- Replace `1234FA5678BC90DE` with your 16-character Psiphon channel ID (hex)
+- Replace `9876AB1234CD5678` with your 16-character Psiphon sponsor ID (hex)
 - Replace the `AdditionalParameters` value with your very long base64-encoded encrypted broker configuration (15-20KB)
 - Replace the three public key placeholders with your actual public keys from Psiphon
 
