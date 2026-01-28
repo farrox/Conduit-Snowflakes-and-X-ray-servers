@@ -25,14 +25,18 @@
   curl -sL https://raw.githubusercontent.com/farrox/conduit_emergency/main/scripts/conduit-manager-mac.sh | bash
   ```
 
-**Option B: Native** — Install the Conduit app from a DMG file; double-click to run, no Docker required.
+**Option B: Native** — Install the Conduit binary from a DMG file; run it from the command line, no Docker required.
 
 - **Step B.1** Download [Conduit.dmg](https://conduit.psiphon.ca/en/download).
-- **Step B.2** Double-click to mount, then drag **Conduit** to the Applications folder.
+- **Step B.2** Double-click the DMG to mount it, then drag **Conduit** to the Applications folder (so the binary is at `/Applications/Conduit`).
 
   <img src="resources/drag.png" alt="Drag Conduit to Applications" width="400">
 
-- **Step B.3** To start Conduit: open **Applications** in Finder → open the **Conduit** folder you installed → double-click **"Start Conduit.command"**. A Terminal window and live dashboard will open.
+- **Step B.3** In **Terminal**, run Conduit:
+  ```bash
+  /Applications/Conduit start
+  ```
+  Add `-v` for verbose output. To run with the live dashboard instead, open the mounted DMG (or the Conduit folder in Applications) and double-click **"Start Conduit.command"**.
 
 📖 [Mac Installation Guide](docs/markdown/INSTALL_MAC.md)
 
