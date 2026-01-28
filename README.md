@@ -143,31 +143,22 @@ You need a `psiphon_config.json` file. Create this file in the **repo root** (th
 - Replace the `AdditionalParameters` value with your very long base64-encoded encrypted broker configuration (15-20KB)
 - Replace the three public key placeholders with your actual public keys from Psiphon
 
-**Where to get these values:**  
-📧 **Email Psiphon** at `info@psiphon.ca` with subject "Request for Conduit CLI Configuration" — they'll send you a complete config file.
+**Where to get this config:**
 
-**How to create the file once you have the config:**
-
-**Mac:**
-1. Open **TextEdit** (in Applications folder)
-2. Format → Make Plain Text
-3. Paste the config Psiphon sent you
-4. Save as `psiphon_config.json` in the repo folder (e.g., `/Users/yourname/Conduit-Snowflakes-and-X-ray-servers/`)
-
-**Linux:**
+**Mac (easiest):** Extract from the iOS Psiphon app
 ```bash
-nano ~/Conduit-Snowflakes-and-X-ray-servers/psiphon_config.json
+./scripts/extract-ios-config.sh
 ```
-Paste the config, press `Ctrl+O` to save, `Ctrl+X` to exit.
+This automatically finds and copies the config from your iOS Simulator or Xcode build.
 
-**Windows:**
-1. Open **Notepad**
-2. Paste the config Psiphon sent you
-3. File → Save As → navigate to `C:\Users\yourname\Conduit-Snowflakes-and-X-ray-servers\`
-4. File name: `psiphon_config.json` (with quotes)
-5. Save as type: **All Files**
+**Linux/Windows:** Email Psiphon at `info@psiphon.ca` with subject "Request for Conduit CLI Configuration" — they'll send you the complete config file.
 
-📖 [Extract from iOS app instead](docs/markdown/GET_CONFIG.md) (Mac only)
+**Then save it:**
+- **Mac:** Use **TextEdit** (Format → Make Plain Text), paste the config, save as `psiphon_config.json`
+- **Linux:** `nano psiphon_config.json`, paste, `Ctrl+O`, `Ctrl+X`
+- **Windows:** Use **Notepad**, paste, Save As `psiphon_config.json` (type: **All Files**)
+
+📖 [Full Config Guide](docs/markdown/GET_CONFIG.md)
 
 ---
 
