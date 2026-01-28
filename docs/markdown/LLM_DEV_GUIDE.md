@@ -31,7 +31,7 @@ This folder contains a **complete, working copy** of the Conduit CLI that can be
 ### If Binary Already Exists (Fastest)
 
 ```bash
-cd /Users/ed/Developer/conduit_emergency
+cd /path/to/Conduit-Snowflakes-and-X-ray-servers
 
 # Run immediately (if binary exists)
 ./dist/conduit start --psiphon-config ./psiphon_config.json
@@ -40,7 +40,7 @@ cd /Users/ed/Developer/conduit_emergency
 ### If You Need to Build
 
 ```bash
-cd /Users/ed/Developer/conduit_emergency
+cd /path/to/Conduit-Snowflakes-and-X-ray-servers
 
 # Ensure Go 1.24.x is in PATH
 export PATH="/usr/local/opt/go@1.24/bin:$PATH"
@@ -60,7 +60,7 @@ make build
 ### Project Structure
 
 ```
-conduit_emergency/
+Conduit-Snowflakes-and-X-ray-servers/
 ├── main.go                    # Entry point
 ├── cmd/                       # CLI commands
 │   ├── root.go               # Root command setup

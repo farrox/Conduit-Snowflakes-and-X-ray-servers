@@ -82,7 +82,7 @@ A minimal test config is included so you can verify Xray starts without setting 
 brew install xray
 
 # Run using the project’s test config (VMess on port 10086)
-cd /path/to/conduit_emergency
+cd /path/to/Conduit-Snowflakes-and-X-ray-servers
 xray run -c scripts/xray-test-config.json
 ```
 
@@ -93,7 +93,7 @@ You should see something like: `[Info] transport/internet/tcp: listening TCP on 
 With Docker running, use the same config. The official image defaults to a confdir, so override with `run -c /etc/xray/config.json`:
 
 ```bash
-cd /path/to/conduit_emergency
+cd /path/to/Conduit-Snowflakes-and-X-ray-servers
 docker run -d --name xray-test \
   -v "$(pwd)/scripts/xray-test-config.json:/etc/xray/config.json:ro" \
   -p 10086:10086 \

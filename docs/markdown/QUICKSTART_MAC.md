@@ -14,8 +14,8 @@
 1. Open Terminal (press `Cmd + Space`, type "Terminal", press Enter)
 2. Copy and paste this command:
    ```bash
-   git clone https://github.com/farrox/conduit_emergency.git
-   cd conduit_emergency
+   git clone https://github.com/farrox/Conduit-Snowflakes-and-X-ray-servers.git
+   cd Conduit-Snowflakes-and-X-ray-servers
    ```
 3. Press Enter
 

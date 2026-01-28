@@ -298,7 +298,7 @@ mkdir -p dashboard/data
 ## 📦 File Structure
 
 ```
-conduit_emergency/
+Conduit-Snowflakes-and-X-ray-servers/
 ├── dashboard/
 │   ├── server.js          # Backend (adapted)
 │   ├── package.json       # Dependencies

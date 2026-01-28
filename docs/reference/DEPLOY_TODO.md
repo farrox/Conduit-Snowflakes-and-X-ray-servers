@@ -33,8 +33,8 @@ Quick reference checklist for deploying Conduit to cloud providers (DigitalOcean
 ### Docker Method (Recommended)
 
 - [ ] Install Docker: `curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh`
-- [ ] Clone repository: `git clone https://github.com/farrox/conduit_emergency.git`
-- [ ] Upload config file: `scp psiphon_config.json user@server:/path/to/conduit_emergency/`
+- [ ] Clone repository: `git clone https://github.com/farrox/Conduit-Snowflakes-and-X-ray-servers.git`
+- [ ] Upload config file: `scp psiphon_config.json user@server:/path/to/Conduit-Snowflakes-and-X-ray-servers/`
 - [ ] Build Docker image: `docker build -t conduit --build-arg PSIPHON_CONFIG=psiphon_config.json -f Dockerfile.embedded .`
 - [ ] Run container: `docker run -d --name conduit -v conduit-data:/home/conduit/data --restart unless-stopped conduit`
 - [ ] Verify running: `docker ps | grep conduit`
@@ -44,10 +44,10 @@ Quick reference checklist for deploying Conduit to cloud providers (DigitalOcean
 
 - [ ] Install Go 1.24.x: `wget https://go.dev/dl/go1.24.0.linux-amd64.tar.gz && sudo tar -C /usr/local -xzf go1.24.0.linux-amd64.tar.gz`
 - [ ] Add Go to PATH: `export PATH=$PATH:/usr/local/go/bin && echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc`
-- [ ] Clone repository: `git clone https://github.com/farrox/conduit_emergency.git`
+- [ ] Clone repository: `git clone https://github.com/farrox/Conduit-Snowflakes-and-X-ray-servers.git`
 - [ ] Setup: `make setup`
 - [ ] Build: `make build`
-- [ ] Upload config: `scp psiphon_config.json user@server:/path/to/conduit_emergency/`
+- [ ] Upload config: `scp psiphon_config.json user@server:/path/to/Conduit-Snowflakes-and-X-ray-servers/`
 - [ ] Create data directory: `mkdir -p data`
 - [ ] Test run: `./dist/conduit start --psiphon-config ./psiphon_config.json -v`
 

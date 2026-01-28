@@ -1,7 +1,8 @@
 #!/bin/bash
 # Start Conduit CLI with optimized settings (max clients, half bandwidth)
 
-cd /Users/ed/Developer/conduit_emergency
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR/.."
 
 echo "🌐 Testing bandwidth with Ookla Speedtest..."
 echo ""

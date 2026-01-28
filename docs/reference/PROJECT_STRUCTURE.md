@@ -3,7 +3,7 @@
 ## Root Directory
 
 ```
-conduit_emergency/
+Conduit-Snowflakes-and-X-ray-servers/
 ├── README.md                    # Main project documentation
 ├── Makefile                     # Build system
 ├── go.mod, go.sum               # Go dependencies

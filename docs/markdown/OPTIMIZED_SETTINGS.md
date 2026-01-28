@@ -29,7 +29,7 @@ pkill -f 'conduit start'
 
 ### Restart with Optimized Settings
 ```bash
-cd /Users/ed/Developer/conduit_emergency
+cd /path/to/Conduit-Snowflakes-and-X-ray-servers
 ./scripts/start_optimized.sh
 ```
 
@@ -40,7 +40,7 @@ This script will automatically:
 
 Or manually:
 ```bash
-cd /Users/ed/Developer/conduit_emergency
+cd /path/to/Conduit-Snowflakes-and-X-ray-servers
 ./dist/conduit start \
   --psiphon-config ./psiphon_config.json \
   --max-clients 1000 \

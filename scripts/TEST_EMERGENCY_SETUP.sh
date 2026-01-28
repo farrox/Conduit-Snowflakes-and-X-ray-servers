@@ -1,10 +1,12 @@
 #!/bin/bash
 # Emergency Setup Test Script
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$SCRIPT_DIR/.."
+cd "$PROJECT_ROOT"
+
 echo "🧪 Testing Emergency CLI Setup"
 echo ""
-
-cd /Users/ed/Developer/conduit_emergency
 
 # Test 1: Binary exists and is executable
 echo "Test 1: Binary exists"

@@ -35,7 +35,7 @@ If you've cloned the repository:
 
 1. **Open Terminal** and navigate to the project:
    ```bash
-   cd /path/to/conduit_emergency
+   cd /path/to/Conduit-Snowflakes-and-X-ray-servers
    ```
 
 2. **Run the easy setup script**:
@@ -71,7 +71,7 @@ If you prefer to do it manually:
 
 3. **Set up and build**:
    ```bash
-   cd /path/to/conduit_emergency
+   cd /path/to/Conduit-Snowflakes-and-X-ray-servers
    make setup
    make build
    ```
@@ -129,7 +129,7 @@ export PATH="/usr/local/opt/go@1.24/bin:$PATH"
 ### "Binary not found"
 Make sure you've built it:
 ```bash
-cd /path/to/conduit_emergency
+cd /path/to/Conduit-Snowflakes-and-X-ray-servers
 make build
 ```
 

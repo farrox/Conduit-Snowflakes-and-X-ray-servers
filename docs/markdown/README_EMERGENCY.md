@@ -27,7 +27,7 @@ See **[LLM_DEV_GUIDE.md](LLM_DEV_GUIDE.md)** for comprehensive development infor
 ## 📁 File Structure
 
 ```
-conduit_emergency/
+Conduit-Snowflakes-and-X-ray-servers/
 ├── dist/
 │   └── conduit              # Built binary (ready to run)
 ├── cmd/                     # CLI commands
@@ -49,14 +49,14 @@ conduit_emergency/
 ## ⚡ Fastest Way to Run
 
 ```bash
-cd /Users/ed/Developer/conduit_emergency
+cd /path/to/Conduit-Snowflakes-and-X-ray-servers
 ./dist/conduit start --psiphon-config ./psiphon_config.json
 ```
 
 ## 🔧 If You Need to Build
 
 ```bash
-cd /Users/ed/Developer/conduit_emergency
+cd /path/to/Conduit-Snowflakes-and-X-ray-servers
 
 # Ensure Go 1.24.x is in PATH
 export PATH="/usr/local/opt/go@1.24/bin:$PATH"

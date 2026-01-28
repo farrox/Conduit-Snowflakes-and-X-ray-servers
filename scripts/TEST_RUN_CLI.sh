@@ -1,7 +1,9 @@
 #!/bin/bash
-# Test running CLI from emergency directory
+# Test running CLI from project directory
 
-cd /Users/ed/Developer/conduit_emergency
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$SCRIPT_DIR/.."
+cd "$PROJECT_ROOT"
 
 echo "🧪 Testing CLI Run from Emergency Directory"
 echo ""
@@ -35,18 +37,18 @@ echo ""
 # Test 3: Try to start service (briefly)
 echo "Test 3: Service initialization"
 echo "  Starting service for 2 seconds..."
-(./dist/conduit start --psiphon-config ./psiphon_config.json -v > /tmp/conduit_emergency_test.log 2>&1 &)
+(./dist/conduit start --psiphon-config ./psiphon_config.json -v > /tmp/conduit_test.log 2>&1 &)
 CLI_PID=$!
 sleep 2
 kill $CLI_PID 2>/dev/null
 wait $CLI_PID 2>/dev/null
 
-if [ -f /tmp/conduit_emergency_test.log ]; then
-    LINES=$(wc -l < /tmp/conduit_emergency_test.log)
+if [ -f /tmp/conduit_test.log ]; then
+    LINES=$(wc -l < /tmp/conduit_test.log)
     if [ "$LINES" -gt 0 ]; then
         echo "  ✅ Service started and produced output ($LINES lines)"
         echo "  First few lines:"
-        head -5 /tmp/conduit_emergency_test.log | sed 's/^/    /'
+        head -5 /tmp/conduit_test.log | sed 's/^/    /'
     else
         echo "  ⚠️  Service started but no output"
     fi
@@ -68,5 +70,5 @@ echo ""
 echo "✅ CLI run test complete!"
 echo ""
 echo "To run the service:"
-echo "  cd /Users/ed/Developer/conduit_emergency"
+echo "  cd $PROJECT_ROOT"
 echo "  ./dist/conduit start --psiphon-config ./psiphon_config.json"

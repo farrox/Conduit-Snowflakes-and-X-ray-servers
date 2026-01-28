@@ -7,7 +7,7 @@
 ## 🚀 Fastest Way to Run (If Binary Exists)
 
 ```bash
-cd /Users/ed/Developer/conduit_emergency
+cd Conduit-Snowflakes-and-X-ray-servers
 ./dist/conduit start --psiphon-config ./psiphon_config.json
 ```
 
@@ -20,7 +20,7 @@ Open Terminal app on your Mac.
 
 ### Step 2: Navigate to Folder
 ```bash
-cd /Users/ed/Developer/conduit_emergency
+cd Conduit-Snowflakes-and-X-ray-servers
 ```
 
 ### Step 3: Check if Binary Exists
@@ -87,8 +87,8 @@ chmod +x dist/conduit
 ### "No such file or directory"
 Make sure you're in the right folder:
 ```bash
-cd /Users/ed/Developer/conduit_emergency
-pwd  # Should show: /Users/ed/Developer/conduit_emergency
+cd Conduit-Snowflakes-and-X-ray-servers
+pwd  # Should show: your project directory (Conduit-Snowflakes-and-X-ray-servers)
 ```
 
 ### "Command not found: make"

@@ -1,7 +1,7 @@
 #!/bin/bash
 # Linux Installation Script for Conduit CLI
 # One-command install for Linux VPS and servers
-# Usage: curl -sL https://raw.githubusercontent.com/farrox/conduit_emergency/main/scripts/install-linux.sh | sudo bash
+# Usage: curl -sL https://raw.githubusercontent.com/farrox/Conduit-Snowflakes-and-X-ray-servers/main/scripts/install-linux.sh | sudo bash
 # Or with custom settings: curl ... | MAX_CLIENTS=500 BANDWIDTH=10 sudo bash
 
 set -e
@@ -155,7 +155,7 @@ if [ -d "$PROJECT_DIR/.git" ]; then
 else
     echo " Cloning repository..."
     rm -rf "$PROJECT_DIR"
-    git clone --depth 1 -q https://github.com/farrox/conduit_emergency.git "$PROJECT_DIR" >/dev/null 2>&1
+    git clone --depth 1 -q https://github.com/farrox/Conduit-Snowflakes-and-X-ray-servers.git "$PROJECT_DIR" >/dev/null 2>&1
     cd "$PROJECT_DIR"
 fi
 

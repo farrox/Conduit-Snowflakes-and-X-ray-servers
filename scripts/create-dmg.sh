@@ -75,7 +75,7 @@ QUICK START:
 Or double-click "Start Conduit.command" to run it automatically.
 
 For more information, see the documentation at:
-https://github.com/farrox/conduit_emergency
+https://github.com/farrox/Conduit-Snowflakes-and-X-ray-servers
 
 IMPORTANT:
 - This binary includes an embedded Psiphon configuration

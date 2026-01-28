@@ -24,7 +24,7 @@ This guide covers deploying Conduit to cloud providers like DigitalOcean, Linode
 ssh root@your-server-ip
 
 # 3. One command installs everything
-curl -sL https://raw.githubusercontent.com/farrox/conduit_emergency/main/scripts/install-linux.sh | sudo bash
+curl -sL https://raw.githubusercontent.com/farrox/Conduit-Snowflakes-and-X-ray-servers/main/scripts/install-linux.sh | sudo bash
 
 # 4. Add your config file
 # Upload psiphon_config.json to /opt/conduit/
@@ -49,8 +49,8 @@ curl -fsSL https://get.docker.com -o get-docker.sh
 sh get-docker.sh
 
 # 4. Clone repository
-git clone https://github.com/farrox/conduit_emergency.git
-cd conduit_emergency
+git clone https://github.com/farrox/Conduit-Snowflakes-and-X-ray-servers.git
+cd Conduit-Snowflakes-and-X-ray-servers
 
 # 5. Build with embedded config
 docker build -t conduit \
@@ -182,12 +182,12 @@ sudo usermod -aG docker $USER
 newgrp docker
 
 # Clone repository
-git clone https://github.com/farrox/conduit_emergency.git
-cd conduit_emergency
+git clone https://github.com/farrox/Conduit-Snowflakes-and-X-ray-servers.git
+cd Conduit-Snowflakes-and-X-ray-servers
 
 # Upload your psiphon_config.json
 # (use scp from your local machine)
-# scp psiphon_config.json user@server:/path/to/conduit_emergency/
+# scp psiphon_config.json user@server:/path/to/Conduit-Snowflakes-and-X-ray-servers/
 
 # Build with embedded config
 docker build -t conduit \
@@ -221,10 +221,10 @@ docker logs -f conduit
 
 ```bash
 # One command installs: Go, builds from source, creates systemd service
-curl -sL https://raw.githubusercontent.com/farrox/conduit_emergency/main/scripts/install-linux.sh | sudo bash
+curl -sL https://raw.githubusercontent.com/farrox/Conduit-Snowflakes-and-X-ray-servers/main/scripts/install-linux.sh | sudo bash
 
 # With custom settings
-curl -sL https://raw.githubusercontent.com/farrox/conduit_emergency/main/scripts/install-linux.sh | MAX_CLIENTS=500 BANDWIDTH=10 sudo bash
+curl -sL https://raw.githubusercontent.com/farrox/Conduit-Snowflakes-and-X-ray-servers/main/scripts/install-linux.sh | MAX_CLIENTS=500 BANDWIDTH=10 sudo bash
 
 # Add config file
 scp psiphon_config.json root@server:/opt/conduit/
@@ -244,8 +244,8 @@ export PATH=$PATH:/usr/local/go/bin
 echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
 
 # Clone repository
-git clone https://github.com/farrox/conduit_emergency.git
-cd conduit_emergency
+git clone https://github.com/farrox/Conduit-Snowflakes-and-X-ray-servers.git
+cd Conduit-Snowflakes-and-X-ray-servers
 
 # Setup dependencies
 make setup
@@ -254,7 +254,7 @@ make setup
 make build
 
 # Upload config
-# scp psiphon_config.json user@server:/path/to/conduit_emergency/
+# scp psiphon_config.json user@server:/path/to/Conduit-Snowflakes-and-X-ray-servers/
 
 # Create data directory
 mkdir -p data

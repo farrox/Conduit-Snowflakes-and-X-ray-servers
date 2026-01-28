@@ -97,7 +97,7 @@ Please open an issue or pull request with:
 
 ## License Compatibility
 
-All integrated projects maintain their original licenses. This project (conduit_emergency) is licensed under GNU General Public License v3.0. Please refer to individual project repositories for their specific license terms.
+All integrated projects maintain their original licenses. This project (Conduit-Snowflakes-and-X-ray-servers) is licensed under GNU General Public License v3.0. Please refer to individual project repositories for their specific license terms.
 
 ---
 
