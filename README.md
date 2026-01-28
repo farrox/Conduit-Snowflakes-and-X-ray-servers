@@ -16,19 +16,20 @@
 
 ### macOS
 
-**Docker**  
-[![Docker Desktop](https://www.docker.com/favicons/favicon-96x96.png)](https://www.docker.com/products/docker-desktop/)  
-[**Download Docker Desktop**](https://www.docker.com/products/docker-desktop/) (Mac, Windows, Linux)
+**A. Docker**
 
-```bash
-curl -sL https://raw.githubusercontent.com/farrox/conduit_emergency/main/scripts/conduit-manager-mac.sh | bash
-```
-No building · Dashboard · Backup/restore · Auto-updates
+- **A.1** Download and install [Docker Desktop](https://www.docker.com/products/docker-desktop/) (Mac).  
+  [![Docker Desktop](https://www.docker.com/favicons/favicon-96x96.png)](https://www.docker.com/products/docker-desktop/)
+- **A.2** In Terminal, run:
+  ```bash
+  curl -sL https://raw.githubusercontent.com/farrox/conduit_emergency/main/scripts/conduit-manager-mac.sh | bash
+  ```
 
-**Native**
-1. Download `Conduit.dmg`
-2. Double-click to mount, drag "Conduit" to Applications
-3. Double-click **"Start Conduit.command"**
+**B. Native**
+
+- **B.1** Download `Conduit.dmg`.
+- **B.2** Double-click to mount, then drag **Conduit** to Applications.
+- **B.3** Double-click **"Start Conduit.command"**.
 
 📖 [Mac Installation Guide](docs/markdown/INSTALL_MAC.md)
 
@@ -36,17 +37,14 @@ No building · Dashboard · Backup/restore · Auto-updates
 
 ### Linux
 
-**One-Command Install (Recommended)**
-```bash
-curl -sL https://raw.githubusercontent.com/farrox/conduit_emergency/main/scripts/install-linux.sh | sudo bash
-```
-
-**With Custom Settings**
-```bash
-curl -sL https://raw.githubusercontent.com/farrox/conduit_emergency/main/scripts/install-linux.sh | MAX_CLIENTS=500 BANDWIDTH=10 sudo bash
-```
-
-✅ Installs everything · Creates systemd service · Auto-starts on boot
+- **A.1** One-command install (run in terminal):
+  ```bash
+  curl -sL https://raw.githubusercontent.com/farrox/conduit_emergency/main/scripts/install-linux.sh | sudo bash
+  ```
+- **A.2** (Optional) With custom settings:
+  ```bash
+  curl -sL https://raw.githubusercontent.com/farrox/conduit_emergency/main/scripts/install-linux.sh | MAX_CLIENTS=500 BANDWIDTH=10 sudo bash
+  ```
 
 📖 [Cloud Deployment Guide](docs/markdown/DEPLOY_CLOUD.md) · [Deployment Checklist](docs/reference/DEPLOY_TODO.md)
 
@@ -54,13 +52,10 @@ curl -sL https://raw.githubusercontent.com/farrox/conduit_emergency/main/scripts
 
 ### Windows
 
-**Coming Soon** - Windows support is in development.
+- **A.1** Native Windows support is coming soon.
+- **A.2** For now: use **WSL2** and follow the Linux steps above, or install [Docker Desktop](https://www.docker.com/products/docker-desktop/) and follow the Mac Docker steps (A.1, A.2).
 
-For now, Windows users can:
-- Use WSL2 (Windows Subsystem for Linux) and follow the Linux instructions
-- Use Docker Desktop and follow the Docker instructions
-
-📖 [Windows Guide](docs/markdown/INSTALL-GO.md) (WSL2 setup)
+📖 [Windows / WSL2 Guide](docs/markdown/INSTALL-GO.md)
 
 📖 **Documentation:** [HTML docs](docs/index.html) · [Quick Start](docs/quickstart.html) · [Snowflake](docs/snowflake.html) · [Xray](docs/xray.html)
 
@@ -68,13 +63,9 @@ For now, Windows users can:
 
 ## 📋 What You Need
 
-1. **Get Config File** - You need a `psiphon_config.json` file
-   - **Easiest:** `./scripts/extract-ios-config.sh` (extract from iOS app)
-   - **Alternative:** Email `info@psiphon.ca` with subject "Request for Conduit CLI Configuration"
-   
-   📖 [Get Config Guide](docs/markdown/GET_CONFIG.md)
-
-2. **Start Conduit** - Run one of the installation options above
+- **1.** Get a config file (`psiphon_config.json`): run `./scripts/extract-ios-config.sh` (from iOS app) or email `info@psiphon.ca` with subject "Request for Conduit CLI Configuration".  
+  📖 [Get Config Guide](docs/markdown/GET_CONFIG.md)
+- **2.** Start Conduit using one of the installation options above.
 
 ---
 
