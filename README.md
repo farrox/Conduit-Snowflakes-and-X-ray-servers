@@ -68,7 +68,15 @@
 
 ### Windows operating system
 
-**Option A: Docker** — Same as Mac Docker (Step A.1, Step A.2). Install [Docker Desktop](https://www.docker.com/products/docker-desktop/) for Windows, then run the manager script.
+**Option A: Docker** — Run Conduit in Docker with the terminal dashboard manager.
+
+- **Step A.1** Download and install [Docker Desktop](https://www.docker.com/products/docker-desktop/) (Windows).  
+  [![Docker Desktop](https://www.docker.com/favicons/favicon-96x96.png)](https://www.docker.com/products/docker-desktop/)
+- **Step A.2** Open **PowerShell** or **WSL2** (Windows Subsystem for Linux), then run:
+  ```bash
+  curl -sL https://raw.githubusercontent.com/farrox/Conduit-Snowflakes-and-X-ray-servers/main/scripts/conduit-manager-mac.sh | bash
+  ```
+  (The script works on Windows with Docker Desktop)
 
 **Option B: Native** — Build the Windows binary from source (requires Go 1.24.x).
 
